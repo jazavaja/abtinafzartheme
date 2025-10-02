@@ -1,6 +1,6 @@
 <?php
 /**
- * Rankola theme functions
+ * abtinafzar theme functions
  */
 
 register_nav_menus(
@@ -9,6 +9,172 @@ register_nav_menus(
         // you can register more menu locations here
     )
 );
+
+// ثبت ویجت کاستوم
+class Contact_Info_Widget extends WP_Widget {
+
+    public function __construct() {
+        parent::__construct(
+            'contact_info_widget', // Base ID
+            'ویجت تماس با ما', // Name
+            array(
+                'description' => 'ویجت اختصاصی برای نمایش اطلاعات تماس',
+                'classname' => 'custom-contact-widget'
+            ) // Args
+        );
+    }
+
+    // بخش نمایش در front-end
+    public function widget($args, $instance) {
+        // داده‌ها را از ACF دریافت می‌کنیم
+        $widget_id = 'widget_' . $args['widget_id'];
+        $phone = get_field('phone_number', $widget_id);
+        $email = get_field('email_address', $widget_id);
+        $address = get_field('address', $widget_id);
+        $show_icons = get_field('show_icons', $widget_id);
+
+        $title = !empty($instance['title']) ? $instance['title'] : 'تماس با ما';
+
+        echo $args['before_widget'];
+        echo $args['before_title'] . apply_filters('widget_title', $title) . $args['after_title'];
+        ?>
+
+        <div class="custom-contact-widget-content">
+            <?php if($phone): ?>
+                <div class="contact-item">
+                    <?php if($show_icons): ?>
+                        <span class="contact-icon">📞</span>
+                    <?php endif; ?>
+                    <span class="contact-text"><?php echo esc_html($phone); ?></span>
+                </div>
+            <?php endif; ?>
+
+            <?php if($email): ?>
+                <div class="contact-item">
+                    <?php if($show_icons): ?>
+                        <span class="contact-icon">📧</span>
+                    <?php endif; ?>
+                    <span class="contact-text">
+                    <a href="mailto:<?php echo esc_attr($email); ?>">
+                        <?php echo esc_html($email); ?>
+                    </a>
+                </span>
+                </div>
+            <?php endif; ?>
+
+            <?php if($address): ?>
+                <div class="contact-item">
+                    <?php if($show_icons): ?>
+                        <span class="contact-icon">📍</span>
+                    <?php endif; ?>
+                    <span class="contact-text"><?php echo nl2br(esc_html($address)); ?></span>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <?php
+        echo $args['after_widget'];
+    }
+
+    // فرم مدیریت در بک-اند
+    public function form($instance) {
+        $title = !empty($instance['title']) ? $instance['title'] : 'تماس با ما';
+        ?>
+        <p>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>">
+                عنوان ویجت:
+            </label>
+            <input
+                class="widefat"
+                id="<?php echo esc_attr($this->get_field_id('title')); ?>"
+                name="<?php echo esc_attr($this->get_field_name('title')); ?>"
+                type="text"
+                value="<?php echo esc_attr($title); ?>"
+            >
+        </p>
+        <p style="color: #666; font-style: italic;">
+            تنظیمات اطلاعات تماس از طریق Advanced Custom Fields در دسترس است.
+        </p>
+        <?php
+    }
+
+    // ذخیره سازی تنظیمات
+    public function update($new_instance, $old_instance) {
+        $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+        return $instance;
+    }
+}
+
+// ثبت ویجت
+function register_custom_contact_widget() {
+    register_widget('Contact_Info_Widget');
+}
+add_action('widgets_init', 'register_custom_contact_widget');
+
+
+// Handle Contact Form Submission
+function handle_contact_form_submission() {
+    // Verify nonce for security
+    if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
+        wp_die('Security check failed');
+    }
+
+    // Get and sanitize form data
+    $name = sanitize_text_field($_POST['contact_name']);
+    $email = sanitize_email($_POST['contact_email']);
+    $phone = sanitize_text_field($_POST['contact_phone']);
+    $subject = sanitize_text_field($_POST['contact_subject']);
+    $message = sanitize_textarea_field($_POST['contact_message']);
+
+    // Prepare email
+    $to = get_option('admin_email'); // Sends to WordPress admin email
+    $email_subject = 'Contact Form: ' . $subject;
+
+    $email_body = "You have received a new message from your website contact form.\n\n";
+    $email_body .= "Name: $name\n";
+    $email_body .= "Email: $email\n";
+    $email_body .= "Phone: $phone\n\n";
+    $email_body .= "Message:\n$message\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>',
+        'Reply-To: ' . $email
+    );
+
+    // Send email
+    $sent = wp_mail($to, $email_subject, $email_body, $headers);
+
+    // Redirect back to contact page with success message
+    if ($sent) {
+        wp_redirect(add_query_arg('sent', 'true', wp_get_referer()));
+    } else {
+        wp_redirect(add_query_arg('sent', 'false', wp_get_referer()));
+    }
+    exit;
+}
+
+// Hook for logged in users
+add_action('admin_post_submit_contact_form', 'handle_contact_form_submission');
+
+// Hook for non-logged in users
+add_action('admin_post_nopriv_submit_contact_form', 'handle_contact_form_submission');
+
+
+// Enqueue theme styles
+function abtinafzar_enqueue_styles() {
+    // Main theme stylesheet
+    wp_enqueue_style('abtinafzar-style', get_stylesheet_uri());
+
+    // Contact page specific stylesheet (only load on contact page)
+    if (is_page_template('page-contact.php')) {
+        wp_enqueue_style('contact-page-style', get_template_directory_uri() . '/contact-page.css', array(), '1.0.0');
+    }
+}
+add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');
+
+
 
 add_theme_support('custom-logo', array(
     'height'      => 100,
@@ -38,107 +204,107 @@ add_action('wp_enqueue_scripts', function () {
 // Customizer: Hero section settings
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     // Panel/Section
-    $wp_customize->add_section('rankola_hero', [
-        'title'       => __('Hero Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_hero', [
+        'title'       => __('Hero Section', 'abtinafzar'),
         'priority'    => 30,
-        'description' => __('Edit homepage hero texts and image', 'rankola'),
+        'description' => __('Edit homepage hero texts and image', 'abtinafzar'),
     ]);
 
     // Kicker
-    $wp_customize->add_setting('rankola_hero_kicker', [
+    $wp_customize->add_setting('abtinafzar_hero_kicker', [
         'default'           => 'AI-Powered SEO Revolution',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ]);
-    $wp_customize->add_control('rankola_hero_kicker', [
-        'label'   => __('Kicker (small label)', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_kicker', [
+        'label'   => __('Kicker (small label)', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'text',
     ]);
 
     // Title
-    $wp_customize->add_setting('rankola_hero_title', [
+    $wp_customize->add_setting('abtinafzar_hero_title', [
         'default'           => 'Effortless SEO, Powered by AI',
         'sanitize_callback' => 'sanitize_text_field',
         'transport'         => 'refresh',
     ]);
-    $wp_customize->add_control('rankola_hero_title', [
-        'label'   => __('Main Title', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_title', [
+        'label'   => __('Main Title', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'text',
     ]);
 
     // Subtitle
-    $wp_customize->add_setting('rankola_hero_subtitle', [
-        'default'           => "Stop wrestling with complex SEO tasks. Let Rankola's intelligent platform generate fully optimized articles, images, and technical metadata automatically. Dominate Google with a single click.",
+    $wp_customize->add_setting('abtinafzar_hero_subtitle', [
+        'default'           => "Stop wrestling with complex SEO tasks. Let abtinafzar's intelligent platform generate fully optimized articles, images, and technical metadata automatically. Dominate Google with a single click.",
         'sanitize_callback' => 'wp_kses_post',
         'transport'         => 'refresh',
     ]);
-    $wp_customize->add_control('rankola_hero_subtitle', [
-        'label'   => __('Subtitle', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_subtitle', [
+        'label'   => __('Subtitle', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'textarea',
     ]);
 
     // Primary button label/link
-    $wp_customize->add_setting('rankola_hero_primary_label', [
+    $wp_customize->add_setting('abtinafzar_hero_primary_label', [
         'default'           => 'Start Your Free Trial',
         'sanitize_callback' => 'sanitize_text_field',
     ]);
-    $wp_customize->add_control('rankola_hero_primary_label', [
-        'label'   => __('Primary Button Label', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_primary_label', [
+        'label'   => __('Primary Button Label', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'text',
     ]);
-    $wp_customize->add_setting('rankola_hero_primary_link', [
+    $wp_customize->add_setting('abtinafzar_hero_primary_link', [
         'default'           => '#pricing',
         'sanitize_callback' => 'esc_url_raw',
     ]);
-    $wp_customize->add_control('rankola_hero_primary_link', [
-        'label'   => __('Primary Button Link', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_primary_link', [
+        'label'   => __('Primary Button Link', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'url',
     ]);
 
     // Secondary button label/link
-    $wp_customize->add_setting('rankola_hero_secondary_label', [
+    $wp_customize->add_setting('abtinafzar_hero_secondary_label', [
         'default'           => 'Watch Demo',
         'sanitize_callback' => 'sanitize_text_field',
     ]);
-    $wp_customize->add_control('rankola_hero_secondary_label', [
-        'label'   => __('Secondary Button Label', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_secondary_label', [
+        'label'   => __('Secondary Button Label', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'text',
     ]);
-    $wp_customize->add_setting('rankola_hero_secondary_link', [
+    $wp_customize->add_setting('abtinafzar_hero_secondary_link', [
         'default'           => '#comparison',
         'sanitize_callback' => 'esc_url_raw',
     ]);
-    $wp_customize->add_control('rankola_hero_secondary_link', [
-        'label'   => __('Secondary Button Link', 'rankola'),
-        'section' => 'rankola_hero',
+    $wp_customize->add_control('abtinafzar_hero_secondary_link', [
+        'label'   => __('Secondary Button Link', 'abtinafzar'),
+        'section' => 'abtinafzar_hero',
         'type'    => 'url',
     ]);
 
     // Hero image
-    $wp_customize->add_setting('rankola_hero_image', [
+    $wp_customize->add_setting('abtinafzar_hero_image', [
         'default'           => get_template_directory_uri() . '/images/hero.png',
         'sanitize_callback' => 'esc_url_raw',
     ]);
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'rankola_hero_image', [
-        'label'    => __('Hero Image', 'rankola'),
-        'section'  => 'rankola_hero',
-        'settings' => 'rankola_hero_image',
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'abtinafzar_hero_image', [
+        'label'    => __('Hero Image', 'abtinafzar'),
+        'section'  => 'abtinafzar_hero',
+        'settings' => 'abtinafzar_hero_image',
     ]));
 });
 
 // Helper to output safe attribute
-function rankola_attr($text) {
+function abtinafzar_attr($text) {
     echo esc_attr($text);
 }
 
 // Helper: fetch JSON array from theme_mod with default fallback
-function rankola_get_json_mod(string $key, array $default) : array {
+function abtinafzar_get_json_mod(string $key, array $default) : array {
     $raw = get_theme_mod($key, wp_json_encode($default));
     if (!is_string($raw) || $raw === '') {
         return $default;
@@ -151,7 +317,7 @@ function rankola_get_json_mod(string $key, array $default) : array {
 }
 
 // Sanitize JSON textarea: accept only valid JSON, else keep previous value
-function rankola_sanitize_json($value, $setting) {
+function abtinafzar_sanitize_json($value, $setting) {
     if (is_array($value)) {
         return wp_json_encode($value);
     }
@@ -168,8 +334,8 @@ function rankola_sanitize_json($value, $setting) {
 // Customizer: Other sections via JSON blocks (fast, simple)
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     // Features
-    $wp_customize->add_section('rankola_features', [
-        'title' => __('Features Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_features', [
+        'title' => __('Features Section', 'abtinafzar'),
         'priority' => 31,
     ]);
     $features_default = [
@@ -180,19 +346,19 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         [ 'title' => 'AI Image Generation & SEO', 'image' => get_template_directory_uri() . '/images/image-ai.png', 'desc' => "Automatically create relevant images that match your content's intent and generates optimized alt text for every image." ],
         [ 'title' => 'Multi-Language Engine', 'image' => get_template_directory_uri() . '/images/multi-lang.png', 'desc' => 'Built-in, native support for both English and Persian (Farsi), a unique tool for global and local markets.' ],
     ];
-    $wp_customize->add_setting('rankola_features_json', [
+    $wp_customize->add_setting('abtinafzar_features_json', [
         'default' => wp_json_encode($features_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
-    $wp_customize->add_control('rankola_features_json', [
-        'label' => __('Features JSON (array of {title, image, desc})', 'rankola'),
+    $wp_customize->add_control('abtinafzar_features_json', [
+        'label' => __('Features JSON (array of {title, image, desc})', 'abtinafzar'),
         'type' => 'textarea',
-        'section' => 'rankola_features',
+        'section' => 'abtinafzar_features',
     ]);
 
     // Problems
-    $wp_customize->add_section('rankola_problems', [
-        'title' => __('Problems Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_problems', [
+        'title' => __('Problems Section', 'abtinafzar'),
         'priority' => 32,
     ]);
     $problems_default = [
@@ -210,21 +376,21 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         ],
     ];
 
-    $wp_customize->add_setting('rankola_problems_json', [
+    $wp_customize->add_setting('abtinafzar_problems_json', [
         'default'           => wp_json_encode($problems_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
 
-    $wp_customize->add_control('rankola_problems_json', [
-        'label'   => __('Problems JSON (array of {text, icon})', 'rankola'),
+    $wp_customize->add_control('abtinafzar_problems_json', [
+        'label'   => __('Problems JSON (array of {text, icon})', 'abtinafzar'),
         'type'    => 'textarea',
-        'section' => 'rankola_problems',
+        'section' => 'abtinafzar_problems',
     ]);
 
 
     // Solutions
-    $wp_customize->add_section('rankola_solutions', [
-        'title' => __('Solutions Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_solutions', [
+        'title' => __('Solutions Section', 'abtinafzar'),
         'priority' => 33,
     ]);
     $solutions_default = [
@@ -232,19 +398,19 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         ['title' => 'Automate Your Workflow', 'desc' => 'From keyword to published post with schema, images, and internal links—automatically.'],
         ['title' => 'Built for WordPress', 'desc' => 'Native plugin support, schema, WooCommerce integration, and multi-language content.'],
     ];
-    $wp_customize->add_setting('rankola_solutions_json', [
+    $wp_customize->add_setting('abtinafzar_solutions_json', [
         'default' => wp_json_encode($solutions_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
-    $wp_customize->add_control('rankola_solutions_json', [
-        'label' => __('Solutions JSON (array of {title, desc})', 'rankola'),
+    $wp_customize->add_control('abtinafzar_solutions_json', [
+        'label' => __('Solutions JSON (array of {title, desc})', 'abtinafzar'),
         'type' => 'textarea',
-        'section' => 'rankola_solutions',
+        'section' => 'abtinafzar_solutions',
     ]);
 
     // Audience
-    $wp_customize->add_section('rankola_audience', [
-        'title' => __('Target Audience Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_audience', [
+        'title' => __('Target Audience Section', 'abtinafzar'),
         'priority' => 34,
     ]);
     $audience_default = [
@@ -270,19 +436,19 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         ],
     ];
 
-    $wp_customize->add_setting('rankola_audience_json', [
+    $wp_customize->add_setting('abtinafzar_audience_json', [
         'default' => wp_json_encode($audience_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
-    $wp_customize->add_control('rankola_audience_json', [
-        'label' => __('Audience JSON (array of {title, desc})', 'rankola'),
+    $wp_customize->add_control('abtinafzar_audience_json', [
+        'label' => __('Audience JSON (array of {title, desc})', 'abtinafzar'),
         'type' => 'textarea',
-        'section' => 'rankola_audience',
+        'section' => 'abtinafzar_audience',
     ]);
 
     // Pricing
-    $wp_customize->add_section('rankola_pricing', [
-        'title' => __('Pricing Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_pricing', [
+        'title' => __('Pricing Section', 'abtinafzar'),
         'priority' => 35,
     ]);
     $pricing_default = [
@@ -294,7 +460,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
                 '3 AI Images / month',
                 'Unlimited Suggest title',
                 'Basic WordPress Plugin',
-                "Experience Rankola power"
+                "Experience abtinafzar power"
             ]
         ],
         [
@@ -334,49 +500,49 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
             ]
         ],
     ];
-    $wp_customize->add_setting('rankola_pricing_json', [
+    $wp_customize->add_setting('abtinafzar_pricing_json', [
         'default' => wp_json_encode($pricing_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
-    $wp_customize->add_control('rankola_pricing_json', [
-        'label' => __('Pricing JSON (array of {name, price, popular, cta, features[]})', 'rankola'),
+    $wp_customize->add_control('abtinafzar_pricing_json', [
+        'label' => __('Pricing JSON (array of {name, price, popular, cta, features[]})', 'abtinafzar'),
         'type' => 'textarea',
-        'section' => 'rankola_pricing',
+        'section' => 'abtinafzar_pricing',
     ]);
 
     // CTA
-    $wp_customize->add_section('rankola_cta', [
-        'title' => __('CTA Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_cta', [
+        'title' => __('CTA Section', 'abtinafzar'),
         'priority' => 36,
     ]);
-    $wp_customize->add_setting('rankola_cta_title', [
+    $wp_customize->add_setting('abtinafzar_cta_title', [
         'default' => 'Ready to Revolutionize Your SEO?',
         'sanitize_callback' => 'sanitize_text_field',
     ]);
-    $wp_customize->add_control('rankola_cta_title', [
-        'label' => __('CTA Title', 'rankola'), 'type' => 'text', 'section' => 'rankola_cta'
+    $wp_customize->add_control('abtinafzar_cta_title', [
+        'label' => __('CTA Title', 'abtinafzar'), 'type' => 'text', 'section' => 'abtinafzar_cta'
     ]);
-    $wp_customize->add_setting('rankola_cta_subtitle', [
+    $wp_customize->add_setting('abtinafzar_cta_subtitle', [
         'default' => 'Join thousands of smart marketers, agencies, and business owners who are automating their growth. Let AI handle your SEO while you focus on what matters most.',
         'sanitize_callback' => 'wp_kses_post',
     ]);
-    $wp_customize->add_control('rankola_cta_subtitle', [
-        'label' => __('CTA Subtitle', 'rankola'), 'type' => 'textarea', 'section' => 'rankola_cta'
+    $wp_customize->add_control('abtinafzar_cta_subtitle', [
+        'label' => __('CTA Subtitle', 'abtinafzar'), 'type' => 'textarea', 'section' => 'abtinafzar_cta'
     ]);
-    $wp_customize->add_setting('rankola_cta_primary_label', [ 'default' => 'Start Generating Content for Free', 'sanitize_callback' => 'sanitize_text_field' ]);
-    $wp_customize->add_control('rankola_cta_primary_label', [ 'label' => __('CTA Primary Label', 'rankola'), 'type' => 'text', 'section' => 'rankola_cta' ]);
-    $wp_customize->add_setting('rankola_cta_primary_link', [ 'default' => '#pricing', 'sanitize_callback' => 'esc_url_raw' ]);
-    $wp_customize->add_control('rankola_cta_primary_link', [ 'label' => __('CTA Primary Link', 'rankola'), 'type' => 'url', 'section' => 'rankola_cta' ]);
-    $wp_customize->add_setting('rankola_cta_secondary_label', [ 'default' => 'Schedule Demo', 'sanitize_callback' => 'sanitize_text_field' ]);
-    $wp_customize->add_control('rankola_cta_secondary_label', [ 'label' => __('CTA Secondary Label', 'rankola'), 'type' => 'text', 'section' => 'rankola_cta' ]);
-    $wp_customize->add_setting('rankola_cta_secondary_link', [ 'default' => '#comparison', 'sanitize_callback' => 'esc_url_raw' ]);
-    $wp_customize->add_control('rankola_cta_secondary_link', [ 'label' => __('CTA Secondary Link', 'rankola'), 'type' => 'url', 'section' => 'rankola_cta' ]);
-    $wp_customize->add_setting('rankola_cta_image', [ 'default' => get_template_directory_uri() . '/images/hero.png', 'sanitize_callback' => 'esc_url_raw' ]);
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'rankola_cta_image', [ 'label' => __('CTA Image', 'rankola'), 'section' => 'rankola_cta', 'settings' => 'rankola_cta_image' ]));
+    $wp_customize->add_setting('abtinafzar_cta_primary_label', [ 'default' => 'Start Generating Content for Free', 'sanitize_callback' => 'sanitize_text_field' ]);
+    $wp_customize->add_control('abtinafzar_cta_primary_label', [ 'label' => __('CTA Primary Label', 'abtinafzar'), 'type' => 'text', 'section' => 'abtinafzar_cta' ]);
+    $wp_customize->add_setting('abtinafzar_cta_primary_link', [ 'default' => '#pricing', 'sanitize_callback' => 'esc_url_raw' ]);
+    $wp_customize->add_control('abtinafzar_cta_primary_link', [ 'label' => __('CTA Primary Link', 'abtinafzar'), 'type' => 'url', 'section' => 'abtinafzar_cta' ]);
+    $wp_customize->add_setting('abtinafzar_cta_secondary_label', [ 'default' => 'Schedule Demo', 'sanitize_callback' => 'sanitize_text_field' ]);
+    $wp_customize->add_control('abtinafzar_cta_secondary_label', [ 'label' => __('CTA Secondary Label', 'abtinafzar'), 'type' => 'text', 'section' => 'abtinafzar_cta' ]);
+    $wp_customize->add_setting('abtinafzar_cta_secondary_link', [ 'default' => '#comparison', 'sanitize_callback' => 'esc_url_raw' ]);
+    $wp_customize->add_control('abtinafzar_cta_secondary_link', [ 'label' => __('CTA Secondary Link', 'abtinafzar'), 'type' => 'url', 'section' => 'abtinafzar_cta' ]);
+    $wp_customize->add_setting('abtinafzar_cta_image', [ 'default' => get_template_directory_uri() . '/images/hero.png', 'sanitize_callback' => 'esc_url_raw' ]);
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'abtinafzar_cta_image', [ 'label' => __('CTA Image', 'abtinafzar'), 'section' => 'abtinafzar_cta', 'settings' => 'abtinafzar_cta_image' ]));
 
     // Comparison
-    $wp_customize->add_section('rankola_comparison', [
-        'title' => __('Comparison Section', 'rankola'),
+    $wp_customize->add_section('abtinafzar_comparison', [
+        'title' => __('Comparison Section', 'abtinafzar'),
         'priority' => 37,
     ]);
     $comparison_default = [
@@ -387,39 +553,39 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         ['feature' => 'AI-Powered Readability Editing', 'others' => false],
         ['feature' => 'Integrated AI Image Generation', 'others' => false],
     ];
-    $wp_customize->add_setting('rankola_comparison_json', [
+    $wp_customize->add_setting('abtinafzar_comparison_json', [
         'default' => wp_json_encode($comparison_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
-    $wp_customize->add_control('rankola_comparison_json', [
-        'label' => __('Comparison JSON (array of {feature, others})', 'rankola'),
+    $wp_customize->add_control('abtinafzar_comparison_json', [
+        'label' => __('Comparison JSON (array of {feature, others})', 'abtinafzar'),
         'type' => 'textarea',
-        'section' => 'rankola_comparison',
+        'section' => 'abtinafzar_comparison',
     ]);
 });
 
-function rankola_customize_register_footer(WP_Customize_Manager $wp_customize) {
+function abtinafzar_customize_register_footer(WP_Customize_Manager $wp_customize) {
     $footer_links_default = [
         ["label" => "Features", "url" => "#features"],
         ["label" => "Pricing", "url" => "#pricing"],
     ];
 
-    $wp_customize->add_section('rankola_footer', [
-        'title'    => __('Footer Settings', 'rankola'),
+    $wp_customize->add_section('abtinafzar_footer', [
+        'title'    => __('Footer Settings', 'abtinafzar'),
         'priority' => 130,
     ]);
 
-    $wp_customize->add_setting('rankola_footer_links', [
+    $wp_customize->add_setting('abtinafzar_footer_links', [
         'default'           => wp_json_encode($footer_links_default),
-        'sanitize_callback' => 'rankola_sanitize_json',
+        'sanitize_callback' => 'abtinafzar_sanitize_json',
     ]);
 
-    $wp_customize->add_control('rankola_footer_links', [
-        'label'   => __('Footer Links (JSON)', 'rankola'),
+    $wp_customize->add_control('abtinafzar_footer_links', [
+        'label'   => __('Footer Links (JSON)', 'abtinafzar'),
         'type'    => 'textarea',
-        'section' => 'rankola_footer',
+        'section' => 'abtinafzar_footer',
     ]);
 }
 
-add_action('customize_register', 'rankola_customize_register_footer');
+add_action('customize_register', 'abtinafzar_customize_register_footer');
 

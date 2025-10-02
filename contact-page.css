@@ -1,20 +1,8 @@
-/*
-Theme Name: Abtinafzar
-Theme URI: https://example.com/rankola
-Author: You
-Author URI: https://example.com
-Description: Rankola landing page theme converted from React to WordPress.
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: rankola
-*/
-
-/* You can place custom CSS overrides here if needed. Tailwind is loaded via CDN. */
-
 /* Contact Page Styles */
 .contact-page {
     padding: 40px 0;
+    background: #ffffff;
+    min-height: 100vh;
 }
 
 .contact-page .container {
@@ -99,6 +87,7 @@ Text Domain: rankola
     border-radius: 4px;
     font-size: 16px;
     transition: border-color 0.3s;
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -135,6 +124,15 @@ Text Domain: rankola
     border-radius: 4px;
     margin-bottom: 20px;
     border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
 }
 
 /* Responsive Design */
