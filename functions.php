@@ -167,9 +167,40 @@ function abtinafzar_enqueue_styles() {
     // Main theme stylesheet
     wp_enqueue_style('abtinafzar-style', get_stylesheet_uri());
 
-    // Contact page specific stylesheet (only load on contact page)
+    // Load page-specific styles only when needed
     if (is_page_template('page-contact.php')) {
-        wp_enqueue_style('contact-page-style', get_template_directory_uri() . '/contact-page.css', array(), '1.0.0');
+        wp_enqueue_style(
+            'abtinafzar-contact-style',
+            get_template_directory_uri() . '/assets/css/contact-page.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
+
+    if (is_page_template('aboutus.php')) {
+        wp_enqueue_style(
+            'abtinafzar-about-style',
+            get_template_directory_uri() . '/assets/css/aboutus.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
+
+    if (is_page_template('front-page.php')) {
+        wp_enqueue_style(
+            'abtinafzar-homepage-style',
+            get_template_directory_uri() . '/assets/css/homepage.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
+    if (is_front_page()) {
+        wp_enqueue_style(
+            'abtinafzar-homepage-style',
+            get_template_directory_uri() . '/assets/css/homepage.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
     }
 }
 add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');
