@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Home Page En
+ * Template Name: Home Page English
  */
 
 get_header(); ?>
-
+yuyuy
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-gradient"></div>

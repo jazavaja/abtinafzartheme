@@ -168,7 +168,15 @@ function abtinafzar_enqueue_styles(): void {
     wp_enqueue_style('abtinafzar-style', get_stylesheet_uri());
 
     // Load page-specific styles only when needed
-    if (is_page_template('page-contact.php')) {
+    if (is_page_template('page-contact-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-contact-style',
+            get_template_directory_uri() . '/assets/css/contact-page.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
+    if (is_page_template('page-contact-fa.php')) {
         wp_enqueue_style(
             'abtinafzar-contact-style',
             get_template_directory_uri() . '/assets/css/contact-page.css',
@@ -177,9 +185,17 @@ function abtinafzar_enqueue_styles(): void {
         );
     }
 
-    if (is_page_template('aboutus.php')) {
+    if (is_page_template('aboutus-en.php')) {
         wp_enqueue_style(
-            'abtinafzar-about-style',
+            'abtinafzar-about-en-style',
+            get_template_directory_uri() . '/assets/css/aboutus.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
+    if (is_page_template('aboutus-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-about-fa-style',
             get_template_directory_uri() . '/assets/css/aboutus.css',
             array('abtinafzar-style'),
             '1.0.0'
@@ -219,6 +235,7 @@ function abtinafzar_enqueue_styles(): void {
         );
     }
 }
+
 add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');
 
 
@@ -268,6 +285,7 @@ function rankola_customize_register_footer_links($wp_customize) {
         'settings' => 'rankola_footer_links',
     )));
 }
+
 add_action('customize_register', 'rankola_customize_register_footer_links');
 
 // Sanitize callback
