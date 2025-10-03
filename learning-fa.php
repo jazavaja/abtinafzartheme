@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Learning English
+ * Template Name: Learning Fa
  */
 
 get_header(); ?>
@@ -10,132 +10,131 @@ get_header(); ?>
     <div class="learning-container">
         <!-- Hero Section -->
         <div class="learning-hero">
-            <h1>🎓 Professional Programming Courses</h1>
-            <p>From Beginner to Expert with the Best Teaching Methods</p>
-            <span class="hero-badge" id="freeClassBadge">✨ First Class FREE for All Courses ✨</span>
+            <h1>🎓 دوره‌های تخصصی برنامه‌نویسی</h1>
+            <p>از مبتدی تا متخصص با بهترین روش‌های آموزشی</p>
+            <span class="hero-badge" id="freeClassBadge">✨ جلسه اول تمام دوره‌ها رایگان است ✨</span>
         </div>
 
         <!-- Courses Section -->
-        <h2 class="section-title">Available Courses</h2>
+        <h2 class="section-title">دوره‌های موجود</h2>
         <div class="courses-grid">
             <!-- Python Course -->
             <div class="course-card">
                 <span class="course-icon">🐍</span>
-                <h3>Python Programming</h3>
-                <p>Learn Python from scratch to advanced, including Django, Flask, Data Science and Automation</p>
+                <h3>برنامه‌نویسی پایتون</h3>
+                <p>پایتون را از صفر تا پیشرفته بیاموزید، شامل جنگو، فلسک، علم داده و اتوماسیون</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 48 Hours</span>
-                    <span class="detail-badge">📚 12 Projects</span>
-                    <span class="detail-badge">🎯 Beginner to Advanced</span>
+                    <span class="detail-badge">⏱️ ۴۸ ساعت</span>
+                    <span class="detail-badge">📚 ۱۲ پروژه</span>
+                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" id="freeClassBadge" data-course="Python Programming">Group Class</button>
-                    <button class="class-btn private" id="freeClassBadge" data-course="Python Programming">Private Class</button>
+                    <button class="class-btn" id="freeClassBadge" data-course="برنامه‌نویسی پایتون">کلاس گروهی</button>
+                    <button class="class-btn private" id="freeClassBadge" data-course="برنامه‌نویسی پایتون">کلاس خصوصی</button>
                 </div>
             </div>
 
             <!-- PHP Course -->
             <div class="course-card">
                 <span class="course-icon">🐘</span>
-                <h3>PHP Development</h3>
-                <p>Master PHP, MySQL, and develop dynamic websites and content management systems</p>
+                <h3>توسعه وب با PHP</h3>
+                <p>بر PHP، MySQL و توسعه وب‌سایت‌های داینامیک و سیستم‌های مدیریت محتوا مسلط شوید</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 40 Hours</span>
-                    <span class="detail-badge">📚 10 Projects</span>
-                    <span class="detail-badge">🎯 Beginner to Advanced</span>
+                    <span class="detail-badge">⏱️ ۴۰ ساعت</span>
+                    <span class="detail-badge">📚 ۱۰ پروژه</span>
+                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" data-course="PHP Development">Group Class</button>
-                    <button class="class-btn private" data-course="PHP Development">Private Class</button>
+                    <button class="class-btn" data-course="توسعه وب با PHP">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="توسعه وب با PHP">کلاس خصوصی</button>
                 </div>
             </div>
 
             <!-- Laravel Course -->
             <div class="course-card">
                 <span class="course-icon">🔷</span>
-                <h3>Laravel Framework</h3>
-                <p>Build professional web applications with Laravel, REST API, Authentication and Real-time Features</p>
+                <h3>فریمورک لاراول</h3>
+                <p>اپلیکیشن‌های وب حرفه‌ای با لاراول، REST API، احراز هویت و قابلیت‌های Real-time بسازید</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 50 Hours</span>
-                    <span class="detail-badge">📚 15 Projects</span>
-                    <span class="detail-badge">🎯 Intermediate to Advanced</span>
+                    <span class="detail-badge">⏱️ ۵۰ ساعت</span>
+                    <span class="detail-badge">📚 ۱۵ پروژه</span>
+                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" data-course="Laravel Framework">Group Class</button>
-                    <button class="class-btn private" data-course="Laravel Framework">Private Class</button>
+                    <button class="class-btn" data-course="فریمورک لاراول">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="فریمورک لاراول">کلاس خصوصی</button>
                 </div>
             </div>
 
             <!-- Django Course -->
             <div class="course-card">
                 <span class="course-icon">🎸</span>
-                <h3>Django Framework</h3>
-                <p>Develop scalable web applications with Django, REST Framework, Celery and Docker</p>
+                <h3>فریمورک جنگو</h3>
+                <p>اپلیکیشن‌های وب مقیاس‌پذیر با جنگو، REST Framework، Celery و Docker توسعه دهید</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 45 Hours</span>
-                    <span class="detail-badge">📚 13 Projects</span>
-                    <span class="detail-badge">🎯 Intermediate to Advanced</span>
+                    <span class="detail-badge">⏱️ ۴۵ ساعت</span>
+                    <span class="detail-badge">📚 ۱۳ پروژه</span>
+                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" data-course="Django Framework">Group Class</button>
-                    <button class="class-btn private" data-course="Django Framework">Private Class</button>
+                    <button class="class-btn" data-course="فریمورک جنگو">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="فریمورک جنگو">کلاس خصوصی</button>
                 </div>
             </div>
 
             <!-- AI/ML Course -->
             <div class="course-card">
                 <span class="course-icon">🤖</span>
-                <h3>AI & Machine Learning</h3>
-                <p>Master Artificial Intelligence, Deep Learning, TensorFlow, PyTorch and real-world AI applications</p>
+                <h3>هوش مصنوعی و یادگیری ماشین</h3>
+                <p>بر هوش مصنوعی، یادگیری عمیق، TensorFlow، PyTorch و کاربردهای واقعی AI مسلط شوید</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 60 Hours</span>
-                    <span class="detail-badge">📚 20 Projects</span>
-                    <span class="detail-badge">🎯 Advanced Level</span>
+                    <span class="detail-badge">⏱️ ۶۰ ساعت</span>
+                    <span class="detail-badge">📚 ۲۰ پروژه</span>
+                    <span class="detail-badge">🎯 سطح پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" data-course="AI & Machine Learning">Group Class</button>
-                    <button class="class-btn private" data-course="AI & Machine Learning">Private Class</button>
+                    <button class="class-btn" data-course="هوش مصنوعی و یادگیری ماشین">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="هوش مصنوعی و یادگیری ماشین">کلاس خصوصی</button>
                 </div>
             </div>
 
             <!-- JavaScript Course -->
             <div class="course-card">
                 <span class="course-icon">💛</span>
-                <h3>JavaScript Mastery</h3>
-                <p>Complete JavaScript ES6+, Async/Await, DOM Manipulation, and modern web development</p>
+                <h3>تسلط بر جاوا اسکریپت</h3>
+                <p>جاوا اسکریپت ES6+، Async/Await، کار با DOM و توسعه وب مدرن را به طور کامل بیاموزید</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 42 Hours</span>
-                    <span class="detail-badge">📚 14 Projects</span>
-                    <span class="detail-badge">🎯 Beginner to Advanced</span>
+                    <span class="detail-badge">⏱️ ۴۲ ساعت</span>
+                    <span class="detail-badge">📚 ۱۴ پروژه</span>
+                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" data-course="JavaScript Mastery">Group Class</button>
-                    <button class="class-btn private" data-course="JavaScript Mastery">Private Class</button>
+                    <button class="class-btn" data-course="تسلط بر جاوا اسکریپت">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="تسلط بر جاوا اسکریپت">کلاس خصوصی</button>
                 </div>
             </div>
 
             <!-- React Course -->
             <div class="course-card">
                 <span class="course-icon">⚛️</span>
-                <h3>React Development</h3>
-                <p>Build modern user interfaces with React, Redux, Hooks, Next.js and TypeScript</p>
+                <h3>توسعه با ری‌اکت</h3>
+                <p>رابط‌های کاربری مدرن با ری‌اکت، Redux، Hooks، Next.js و TypeScript بسازید</p>
                 <div class="course-details">
-                    <span class="detail-badge">⏱️ 55 Hours</span>
-                    <span class="detail-badge">📚 18 Projects</span>
-                    <span class="detail-badge">🎯 Intermediate to Advanced</span>
+                    <span class="detail-badge">⏱️ ۵۵ ساعت</span>
+                    <span class="detail-badge">📚 ۱۸ پروژه</span>
+                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
                 </div>
                 <div class="class-types">
-                    <button class="class-btn" data-course="React Development">Group Class</button>
-                    <button class="class-btn private" data-course="React Development">Private Class</button>
+                    <button class="class-btn" data-course="توسعه با ری‌اکت">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="توسعه با ری‌اکت">کلاس خصوصی</button>
                 </div>
             </div>
         </div>
 
         <!-- Testimonials Section -->
         <div class="testimonials-section">
-            <h2 class="section-title">Student Testimonials</h2>
-            <p style="text-align: center; color: #cbd5e1; margin-bottom: 2rem;">Listen to what our students say about
-                their learning experience</p>
+            <h2 class="section-title">نظرات دانشجویان</h2>
+            <p style="text-align: center; color: #cbd5e1; margin-bottom: 2rem;">ببینید دانشجویان ما در مورد تجربه یادگیری خود چه می‌گویند</p>
 
             <div class="testimonials-grid">
                 <!-- Testimonial 1 -->
@@ -143,8 +142,8 @@ get_header(); ?>
                     <div class="student-info">
                         <div class="student-avatar">AH</div>
                         <div class="student-details">
-                            <h4>Ali Hosseini</h4>
-                            <p>Python Developer</p>
+                            <h4>علی حسینی</h4>
+                            <p>توسعه‌دهنده پایتون</p>
                         </div>
                     </div>
                     <div class="voice-player">
@@ -163,8 +162,8 @@ get_header(); ?>
                     <div class="student-info">
                         <div class="student-avatar">SM</div>
                         <div class="student-details">
-                            <h4>Sara Mohammadi</h4>
-                            <p>Full Stack Developer</p>
+                            <h4>سارا محمدی</h4>
+                            <p>توسعه‌دهنده فول‌استک</p>
                         </div>
                     </div>
                     <div class="voice-player">
@@ -183,8 +182,8 @@ get_header(); ?>
                     <div class="student-info">
                         <div class="student-avatar">RK</div>
                         <div class="student-details">
-                            <h4>Reza Karimi</h4>
-                            <p>AI Engineer</p>
+                            <h4>رضا کریمی</h4>
+                            <p>مهندس هوش مصنوعی</p>
                         </div>
                     </div>
                     <div class="voice-player">
@@ -203,8 +202,8 @@ get_header(); ?>
                     <div class="student-info">
                         <div class="student-avatar">MA</div>
                         <div class="student-details">
-                            <h4>Maryam Ahmadi</h4>
-                            <p>React Developer</p>
+                            <h4>مریم احمدی</h4>
+                            <p>توسعه‌دهنده ری‌اکت</p>
                         </div>
                     </div>
                     <div class="voice-player">
@@ -223,8 +222,8 @@ get_header(); ?>
                     <div class="student-info">
                         <div class="student-avatar">PM</div>
                         <div class="student-details">
-                            <h4>Pouya Moradi</h4>
-                            <p>Backend Developer</p>
+                            <h4>پویا مرادی</h4>
+                            <p>توسعه‌دهنده بک‌اند</p>
                         </div>
                     </div>
                     <div class="voice-player">
@@ -243,8 +242,8 @@ get_header(); ?>
                     <div class="student-info">
                         <div class="student-avatar">NR</div>
                         <div class="student-details">
-                            <h4>Navid Rezaei</h4>
-                            <p>Laravel Developer</p>
+                            <h4>ناوید رضایی</h4>
+                            <p>توسعه‌دهنده لاراول</p>
                         </div>
                     </div>
                     <div class="voice-player">
@@ -262,9 +261,9 @@ get_header(); ?>
 
         <!-- Free Class CTA -->
         <div class="free-class-cta">
-            <h2>🎁 Get Your First Class FREE!</h2>
-            <p>Experience our teaching quality before committing. No credit card required.</p>
-            <div class="cta-button" id="freeClassButton">Book Free Class Now</div>
+            <h2>🎁 جلسه اول را رایگان دریافت کنید!</h2>
+            <p>کیفیت آموزش ما را قبل از ثبت‌نام تجربه کنید. نیازی به اطلاعات پرداخت نیست.</p>
+            <div class="cta-button" id="freeClassButton">رزرو جلسه رایگان</div>
         </div>
     </div>
 
@@ -272,23 +271,23 @@ get_header(); ?>
     <div class="modal-overlay" id="registrationModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">Register for Free Class</h3>
+                <h3 class="modal-title">ثبت‌نام برای جلسه رایگان</h3>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
 
-            <?php echo do_shortcode('[contact-form-7 id="1ffbcfa" title="Register for Free Class"]'); ?>
+            <?php echo do_shortcode('[contact-form-7 id="2f6453b" title="Register for Free Fa"]'); ?>
         </div>
     </div>
 
     <select id="courseSelect" name="course" class="form-control" required>
-        <option value="">Choose a course</option>
-        <option value="Python Programming">Python Programming</option>
-        <option value="PHP Development">PHP Development</option>
-        <option value="Laravel Framework">Laravel Framework</option>
-        <option value="Django Framework">Django Framework</option>
-        <option value="AI & Machine Learning">AI & Machine Learning</option>
-        <option value="JavaScript Mastery">JavaScript Mastery</option>
-        <option value="React Development">React Development</option>
+        <option value="">یک دوره را انتخاب کنید</option>
+        <option value="برنامه‌نویسی پایتون">برنامه‌نویسی پایتون</option>
+        <option value="توسعه وب با PHP">توسعه وب با PHP</option>
+        <option value="فریمورک لاراول">فریمورک لاراول</option>
+        <option value="فریمورک جنگو">فریمورک جنگو</option>
+        <option value="هوش مصنوعی و یادگیری ماشین">هوش مصنوعی و یادگیری ماشین</option>
+        <option value="تسلط بر جاوا اسکریپت">تسلط بر جاوا اسکریپت</option>
+        <option value="توسعه با ری‌اکت">توسعه با ری‌اکت</option>
     </select>
 
 

@@ -260,6 +260,40 @@ get_header(); ?>
             </div>
         </div>
 
+        <?php
+        $args = array(
+            'post_type' => 'student_testimonial',
+            'posts_per_page' => -1,
+            'orderby' => 'date',
+            'order' => 'DESC',
+        );
+
+        $testimonials = new WP_Query($args);
+
+        if ($testimonials->have_posts()) :
+            echo '<div class="student-testimonials">';
+            while ($testimonials->have_posts()) : $testimonials->the_post();
+
+                $name_en = pods_field('student_testimonial', get_the_ID(), 'student_name_en');
+                $name_fa = pods_field('student_testimonial', get_the_ID(), 'student_name_fa');
+                $title_en = pods_field('student_testimonial', get_the_ID(), 'student_title_en');
+                $title_fa = pods_field('student_testimonial', get_the_ID(), 'student_title_fa');
+                $audio_url = pods_field('student_testimonial', get_the_ID(), 'audio_file');
+                $rating = pods_field('student_testimonial', get_the_ID(), 'rating');
+                echo json_encode($name_en[0]);
+                echo json_encode($audio_url['post_content']);
+                echo "__________________";
+                ?>
+            <?php
+
+            endwhile;
+            echo '</div>';
+            wp_reset_postdata();
+        else :
+            echo '<p>No testimonials found.</p>';
+        endif;
+        ?>
+
         <!-- Free Class CTA -->
         <div class="free-class-cta">
             <h2>🎁 Get Your First Class FREE!</h2>

@@ -149,6 +149,14 @@ function abtinafzar_enqueue_styles(): void {
             '1.0.0'
         );
     }
+    if (is_page_template('learning-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-contact-style',
+            get_template_directory_uri() . '/assets/css/learning-en.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
 
     if (is_page_template('aboutus-en.php')) {
         wp_enqueue_style(
@@ -203,6 +211,23 @@ function abtinafzar_enqueue_styles(): void {
 
 add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');
 
+
+/**
+ * Get Student Testimonials for the learning page.
+ *
+ * @param int $number The number of testimonials to retrieve.
+ * @return WP_Query
+ */
+function get_student_testimonials($number = 6)
+{
+    $args = array(
+        'post_type' => 'student-testimonial',
+        'posts_per_page' => $number,
+        'orderby' => 'date', // You can change to 'rand' for random order
+        'order' => 'DESC',
+    );
+    return new WP_Query($args);
+}
 
 
 // Add Footer Links section to Customizer
