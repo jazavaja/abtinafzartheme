@@ -125,7 +125,7 @@ yuyuy
             </div>
             <div class="service-card">
                 <div class="service-icon">💡</div>
-                <h3>Tech Strategy for Startups & Businesses</h3>
+                <h3>Consultation Startups & Businesses</h3>
                 <p>Expert guidance on product architecture, tech stack selection, and scalable development roadmaps</p>
             </div>
             <div class="service-card">
