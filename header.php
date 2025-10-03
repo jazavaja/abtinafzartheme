@@ -1,28 +1,47 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="<?php bloginfo('charset'); ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?php wp_head(); ?>
     <style>
         /* Blob animations */
-        .animate-blob{animation:blob 8s infinite}
-        .animation-delay-2000{animation-delay:-2s}
-        .animation-delay-4000{animation-delay:-4s}
-        @keyframes blob{
-            0%{transform:translate(0,0) scale(1)}
-            33%{transform:translate(30px,-50px) scale(1.1)}
-            66%{transform:translate(-20px,20px) scale(.9)}
-            100%{transform:translate(0,0) scale(1)}
+        .animate-blob {
+            animation: blob 8s infinite
+        }
+
+        .animation-delay-2000 {
+            animation-delay: -2s
+        }
+
+        .animation-delay-4000 {
+            animation-delay: -4s
+        }
+
+        @keyframes blob {
+            0% {
+                transform: translate(0, 0) scale(1)
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1)
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(.9)
+            }
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
         }
 
         /* Mobile menu styles */
         .mobile-menu {
             display: none;
         }
+
         .mobile-menu.active {
             display: block;
         }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -35,6 +54,7 @@
             padding: 0;
             z-index: 10;
         }
+
         .hamburger span {
             width: 100%;
             height: 2px;
@@ -42,31 +62,36 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
+
         /* Mobile breakpoint */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
             }
+
             .desktop-nav {
                 display: none;
             }
+
             .mobile-menu {
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
                 background: #0f172a;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 padding: 1rem 0;
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
             }
+
             .mobile-menu ul {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
             }
+
             .mobile-menu a {
                 color: #cbd5e1;
                 text-decoration: none;
@@ -75,9 +100,11 @@
                 border-radius: 4px;
                 transition: color 0.2s;
             }
+
             .mobile-menu a:hover {
                 color: white;
             }
+
             .mobile-cta {
                 display: block !important;
                 margin-top: 1rem;
@@ -118,7 +145,7 @@
                         $menu_items = wp_get_nav_menu_items($menu->term_id);
 
                         $menu_list = '<ul class="flex items-center space-x-8">';
-                        foreach ((array) $menu_items as $key => $menu_item) {
+                        foreach ((array)$menu_items as $key => $menu_item) {
                             $title = esc_html($menu_item->title);
                             $url = esc_url($menu_item->url);
                             $menu_list .= '<li><a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="' . $url . '">' . $title . '</a></li>';
@@ -137,9 +164,23 @@
                 </button>
 
                 <!-- CTA Button (hidden on mobile by default) -->
-                <a href="#pricing" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium
-                text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
-                    Start Learning
+                <?php
+                if (function_exists('pll_current_language')) {
+                    $lang = pll_current_language();
+                } else {
+                    $lang = 'fa';
+                }
+
+                // استفاده از home_url() برای لینک کامل و مطلق
+                $url_learning = ($lang === 'en')
+                    ? home_url('/learning-en')
+                    : home_url('/learning-fa');
+
+                $button_text = ($lang === 'en') ? 'Start Learning' : 'شروع آموزش';
+                ?>
+
+                <a href="<?php echo esc_url($url_learning); ?>" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
+                    <?php echo esc_html($button_text); ?>
                 </a>
             </div>
         </div>
@@ -149,7 +190,7 @@
             <?php
             if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name]) && !empty($menu_items)) {
                 $mobile_menu_list = '<ul>';
-                foreach ((array) $menu_items as $menu_item) {
+                foreach ((array)$menu_items as $menu_item) {
                     $title = esc_html($menu_item->title);
                     $url = esc_url($menu_item->url);
                     $mobile_menu_list .= '<li><a href="' . $url . '">' . $title . '</a></li>';
@@ -158,16 +199,37 @@
                 echo $mobile_menu_list;
             }
             ?>
-            <a href="#pricing" class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium
+
+
+            <?php
+            if (function_exists('pll_current_language')) {
+                $lang = pll_current_language(); // 'fa' یا 'en'
+            } else {
+                $lang = 'fa'; // پیش‌فرض فارسی
+            }
+
+            if ($lang === 'en') {
+                ?>
+                <a href="#pricing" class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium
             text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
-                Start Learning
-            </a>
+                    Start Learning
+                </a>
+                <?php
+            } else {
+                ?>
+                <a href="#pricing" class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium
+            text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
+                    شروع اموزش
+                </a>
+                <?php
+            }
+            ?>
         </div>
     </header>
 
     <!-- Mobile menu toggle script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const toggle = document.getElementById('mobile-menu-toggle');
             const menu = document.getElementById('mobile-menu');
 

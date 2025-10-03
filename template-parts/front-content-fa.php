@@ -73,7 +73,7 @@ get_header(); ?>
             <div class="consultation-card">
                 <div class="consultation-header">
                     <h2>مشاوره رایگان</h2>
-                    <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم—بدون تعهد</p>
+                    <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
                 </div>
                 <form class="consultation-form">
                     <div class="form-grid">
