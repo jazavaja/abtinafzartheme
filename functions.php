@@ -113,50 +113,7 @@ function register_custom_contact_widget() {
 add_action('widgets_init', 'register_custom_contact_widget');
 
 
-// Handle Contact Form Submission
-function handle_contact_form_submission() {
-    // Verify nonce for security
-    if (!isset($_POST['contact_form_nonce']) || !wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
-        wp_die('Security check failed');
-    }
 
-    // Get and sanitize form data
-    $name = sanitize_text_field($_POST['contact_name']);
-    $email = sanitize_email($_POST['contact_email']);
-    $phone = sanitize_text_field($_POST['contact_phone']);
-    $subject = sanitize_text_field($_POST['contact_subject']);
-    $message = sanitize_textarea_field($_POST['contact_message']);
-
-    // Prepare email
-    $to = get_option('admin_email'); // Sends to WordPress admin email
-    $email_subject = 'Contact Form: ' . $subject;
-
-    $email_body = "You have received a new message from your website contact form.\n\n";
-    $email_body .= "Name: $name\n";
-    $email_body .= "Email: $email\n";
-    $email_body .= "Phone: $phone\n\n";
-    $email_body .= "Message:\n$message\n";
-
-    $headers = array(
-        'Content-Type: text/plain; charset=UTF-8',
-        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>',
-        'Reply-To: ' . $email
-    );
-
-    // Send email
-    $sent = wp_mail($to, $email_subject, $email_body, $headers);
-
-    // Redirect back to contact page with success message
-    if ($sent) {
-        wp_redirect(add_query_arg('sent', 'true', wp_get_referer()));
-    } else {
-        wp_redirect(add_query_arg('sent', 'false', wp_get_referer()));
-    }
-    exit;
-}
-
-// Hook for logged in users
-add_action('admin_post_submit_contact_form', 'handle_contact_form_submission');
 
 // Hook for non-logged in users
 add_action('admin_post_nopriv_submit_contact_form', 'handle_contact_form_submission');
@@ -180,6 +137,14 @@ function abtinafzar_enqueue_styles(): void {
         wp_enqueue_style(
             'abtinafzar-contact-style',
             get_template_directory_uri() . '/assets/css/contact-page.css',
+            array('abtinafzar-style'),
+            '1.0.0'
+        );
+    }
+    if (is_page_template('learning-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-contact-style',
+            get_template_directory_uri() . '/assets/css/learning-en.css',
             array('abtinafzar-style'),
             '1.0.0'
         );
