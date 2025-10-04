@@ -22,12 +22,14 @@
 
 /* Apply to entire page */
 * {
-    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
 }
 
 body {
     direction: rtl;
     text-align: right;
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+
 }
 
 
@@ -352,16 +354,6 @@ body {
     backdrop-filter: blur(20px);
     position: relative;
     overflow: hidden;
-}
-
-.consultation-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
 }
 
 .consultation-header {

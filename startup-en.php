@@ -57,25 +57,121 @@ get_header(); ?>
             color: #A0AEC0;
         }
 
+
+        /*---------------------------------------------------------*/
+
+        /* ===== CONSULTATION SECTION ===== */
+
+        #consultation {
+            background: var(--dark);
+            position: relative;
+        }
+
+        .consultation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .consultation-card {
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .consultation-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            position: relative;
+            z-index: 1;
+        }
+        /* ===== CONSULTATION SECTION END ===== */
+
+
+
         /* ---------------------------------- */
         /* BUTTON STYLES (CTA) */
         /* ---------------------------------- */
         .btn {
             display: inline-block;
             padding: 0.85rem 2.5rem;
-            background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);
-            color: #FFFFFF !important;
             font-weight: bold;
             border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             text-decoration: none !important;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
             font-size: 1.1rem;
+            border: 2px solid #667eea;
+            color: #fff;
+            background: transparent;
+            backdrop-filter: blur(10px);
         }
         .btn:hover {
-            background: linear-gradient(90deg, #66BB6A 0%, #4CAF50 100%);
+            /*background: linear-gradient(90deg, #66BB6A 0%, #4CAF50 100%);*/
+            /*transform: translateY(-3px);*/
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
             color: #FFFFFF !important;
         }
         .btn-secondary {
@@ -407,6 +503,13 @@ get_header(); ?>
             </div>
         </section>
 
+        <section class="final-cta">
+            <div class="container">
+                <h2>Ready to Build Your Future?</h2>
+                <p>Stop guessing and start building with confidence. Let's schedule a no-obligation discovery call to discuss your startup's unique challenges and how we can help you overcome them.</p>
+                <a href="#consultation" class="btn">Book Your Free Discovery Call</a>
+            </div>
+        </section>
         <div class="container">
             <section class="process-section">
                 <h2>Our Proven Consulting Process</h2>
@@ -435,22 +538,27 @@ get_header(); ?>
                 </div>
             </section>
 
-            <section class="testimonial-section">
-                <h2 style="text-align: center; border-left: none; padding-left: 0;">What Founders Say</h2>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"We were struggling with our tech stack and scaling issues. Javad didn't just fix our code; he provided a clear strategic vision that saved us months of wasted effort and thousands of dollars. His expertise in AI is second to none. He's the CTO every startup wishes they had."</p>
-                    <p class="testimonial-author">Sarah Jenkins <span>CEO, InnovateAI</span></p>
-                </div>
-            </section>
         </div>
-
-        <section class="final-cta">
-            <div class="container">
-                <h2>Ready to Build Your Future?</h2>
-                <p>Stop guessing and start building with confidence. Let's schedule a no-obligation discovery call to discuss your startup's unique challenges and how we can help you overcome them.</p>
-                <a href="[Your Calendly or Contact Form Link]" class="btn">Book Your Free Discovery Call</a>
+        <section id="consultation">
+            <div class="consultation-container">
+                <div class="consultation-card">
+                    <div class="consultation-header">
+                        <h2> Free Consultation</h2>
+                        <p>Have an idea? Need technical advice? Let's talk—no obligation</p>
+                    </div>
+                    <?php echo do_shortcode('[contact-form-7 id="bbc6078" title="Free Conclusion"]'); ?>
+                </div>
             </div>
         </section>
+        <section class="testimonial-section">
+            <h2 style="text-align: center; border-left: none; padding-left: 0;">What Founders Say</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"We were struggling with our tech stack and scaling issues. Javad didn't just fix our code; he provided a clear strategic vision that saved us months of wasted effort and thousands of dollars. His expertise in AI is second to none. He's the CTO every startup wishes they had."</p>
+                <p class="testimonial-author">Sarah Jenkins <span>CEO, InnovateAI</span></p>
+            </div>
+        </section>
+
+
 
     </main>
 

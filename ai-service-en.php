@@ -61,6 +61,93 @@ get_header(); ?>
             color: #4CAF50;
         }
 
+
+        /* ===== CONSULTATION SECTION ===== */
+
+        #consultation {
+            background: var(--dark);
+            position: relative;
+        }
+
+        .consultation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .consultation-card {
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .consultation-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            position: relative;
+            z-index: 1;
+        }
+        /* ===== CONSULTATION SECTION ===== */
+
         /* ---------------------------------- */
         /* BUTTON STYLES (CTA) - FIXED HOVER & TEXT COLOR */
         /* ---------------------------------- */
@@ -419,6 +506,20 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+
+        <section id="consultation">
+            <div class="consultation-container">
+                <div class="consultation-card">
+                    <div class="consultation-header">
+                        <h2>Free Consultation</h2>
+                        <p>Got an idea in the field of AI? Need technical advice? Let’s talk.</p>
+                    </div>
+                    <?php echo do_shortcode('[contact-form-7 id="bbc6078" title="Free Conclusion"]'); ?>
+
+                </div>
+            </div>
+        </section>
+
 
         <div class="container">
             <div class="founder-card">

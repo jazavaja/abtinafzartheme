@@ -18,6 +18,125 @@ get_header(); ?>
             direction: rtl; /* Ensure RTL for Persian */
             text-align: right; /* Default text alignment */
         }
+        /*------------------------*/
+        @font-face {
+            font-family: 'Vazir';
+            src: url('../fonts/Vazir.woff2') format('woff2'),
+            url('../fonts/Vazir.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Vazir';
+            src: url('../fonts/Vazir-Bold.woff2') format('woff2'),
+            url('../fonts/Vazir-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Apply to entire page */
+        * {
+            font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+        }
+
+        body {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+
+        }
+        /* ===== CONSULTATION SECTION ===== */
+
+        #consultation {
+            background: var(--dark);
+            position: relative;
+        }
+
+        .consultation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .consultation-card {
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .consultation-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            position: relative;
+            z-index: 1;
+        }
+        /* ===== CONSULTATION SECTION END ===== */
+
+        /*-----------------*/
         a {
             color: #66BB6A;
             text-decoration: none;
@@ -65,19 +184,24 @@ get_header(); ?>
         .btn {
             display: inline-block;
             padding: 0.85rem 2.5rem;
-            background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);
-            color: #FFFFFF !important;
+            /*background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);*/
+            /*color: #FFFFFF !important;*/
             font-weight: bold;
             border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             text-decoration: none !important;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
             font-size: 1.1rem;
+            border: 2px solid #667eea;
+            color: #fff;
+            background: transparent;
+            backdrop-filter: blur(10px);
         }
         .btn:hover {
-            background: linear-gradient(90deg, #66BB6A 0%, #4CAF50 100%);
+            /*background: linear-gradient(90deg, #66BB6A 0%, #4CAF50 100%);*/
+            /*transform: translateY(-3px);*/
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
             color: #FFFFFF !important;
         }
         .btn-secondary {
@@ -362,6 +486,14 @@ get_header(); ?>
                 </div>
             </section>
 
+            <section class="final-cta">
+                <div class="container">
+                    <h2>آماده‌اید آینده خود را بسازید؟</h2>
+                    <p>حدس و گمان را کنار بگذارید و با اطمینان شروع به ساخت کنید. بیایید یک تماس کشفی بدون تعهد را برنامه‌ریزی کنیم تا در مورد چالش‌های منحصربه‌فرد استارتاپ شما و نحوه کمک ما برای غلبه بر آن‌ها صحبت کنیم.</p>
+                    <a href="#consultation" class="btn">درخواست تماس مشاوره رایگان</a>
+                </div>
+            </section>
+
             <section id="the-solution">
                 <h2>شریک استراتژیک شما برای موفقیت</h2>
                 <p>ما فقط کدنویسی نمی‌کنیم؛ ما بنیانی برای رشد پایدار شما می‌سازیم. خدمات مشاوره ما برای کاهش ریسک مسیر شما و شتاب‌بخشی به مسیر موفقیتتان طراحی شده‌اند.</p>
@@ -380,7 +512,22 @@ get_header(); ?>
                     </div>
                 </div>
             </section>
+
+
+
         </div>
+        <section id="consultation">
+            <div class="consultation-container">
+                <div class="consultation-card">
+                    <div class="consultation-header">
+                        <h2>مشاوره رایگان</h2>
+                        <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
+                    </div>
+                    <?php echo do_shortcode('[contact-form-7 id="33e14a3" title="Free Conclusion Fa"]'); ?>
+
+                </div>
+            </div>
+        </section>
 
         <section class="services-offered" id="consulting-services">
             <div class="container">
@@ -413,6 +560,8 @@ get_header(); ?>
                 </div>
             </div>
         </section>
+
+
 
         <div class="container">
             <section class="process-section">
@@ -451,13 +600,7 @@ get_header(); ?>
             </section>
         </div>
 
-        <section class="final-cta">
-            <div class="container">
-                <h2>آماده‌اید آینده خود را بسازید؟</h2>
-                <p>حدس و گمان را کنار بگذارید و با اطمینان شروع به ساخت کنید. بیایید یک تماس کشفی بدون تعهد را برنامه‌ریزی کنیم تا در مورد چالش‌های منحصربه‌فرد استارتاپ شما و نحوه کمک ما برای غلبه بر آن‌ها صحبت کنیم.</p>
-                <a href="[Your Calendly or Contact Form Link]" class="btn">درخواست تماس مشاوره رایگان</a>
-            </div>
-        </section>
+
 
     </main>
 

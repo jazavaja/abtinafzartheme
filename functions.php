@@ -113,6 +113,18 @@ function register_custom_contact_widget() {
 add_action('widgets_init', 'register_custom_contact_widget');
 
 
+function always_load_cf7_scripts() {
+    if (function_exists('wpcf7_enqueue_scripts')) {
+        wpcf7_enqueue_scripts();
+    }
+    if (function_exists('wpcf7_enqueue_styles')) {
+        wpcf7_enqueue_styles();
+    }
+}
+add_action('wp_enqueue_scripts', 'always_load_cf7_scripts');
+
+
+
 function allow_audio_uploads($mimes) {
     $mimes['mp3'] = 'audio/mpeg';
     $mimes['wav'] = 'audio/wav';
@@ -140,6 +152,7 @@ function abtinafzar_enqueue_styles(): void {
             '1.0.0'
         );
     }
+
     if (is_page_template('page-contact-fa.php')) {
         wp_enqueue_style(
             'abtinafzar-contact-style',
@@ -148,6 +161,7 @@ function abtinafzar_enqueue_styles(): void {
             '1.0.0'
         );
     }
+
     if (is_page_template('learning-en.php')) {
         wp_enqueue_style(
             'abtinafzar-contact-style',
@@ -156,6 +170,7 @@ function abtinafzar_enqueue_styles(): void {
             '1.0.0'
         );
     }
+
     if (is_page_template('learning-fa.php')) {
         wp_enqueue_style(
             'abtinafzar-contact-style',
@@ -173,10 +188,11 @@ function abtinafzar_enqueue_styles(): void {
             '1.0.0'
         );
     }
+
     if (is_page_template('aboutus-fa.php')) {
         wp_enqueue_style(
             'abtinafzar-about-fa-style',
-            get_template_directory_uri() . '/assets/css/aboutus.css',
+            get_template_directory_uri() . '/assets/css/aboutus-fa.css',
             array('abtinafzar-style'),
             '1.0.0'
         );
@@ -190,6 +206,7 @@ function abtinafzar_enqueue_styles(): void {
             '1.0.0'
         );
     }
+
     if (is_page_template('front-page.php')) {
         wp_enqueue_style(
             'abtinafzar-homepage-style',
@@ -202,14 +219,6 @@ function abtinafzar_enqueue_styles(): void {
         wp_enqueue_style(
             'abtinafzar-homepage-style',
             get_template_directory_uri() . '/assets/css/privacy.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-    if (is_front_page()) {
-        wp_enqueue_style(
-            'abtinafzar-homepage-style',
-            get_template_directory_uri() . '/assets/css/homepage.css',
             array('abtinafzar-style'),
             '1.0.0'
         );

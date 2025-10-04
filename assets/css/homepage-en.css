@@ -323,15 +323,13 @@ body {
     overflow: hidden;
 }
 
-.consultation-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-}
+
+/*.wpcf7-submit {*/
+/*    position: relative !important;*/
+/*    z-index: 999999 !important;*/
+/*    pointer-events: auto !important;*/
+/*}*/
+
 
 .consultation-header {
     text-align: center;

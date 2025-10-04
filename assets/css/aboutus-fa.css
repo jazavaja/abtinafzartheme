@@ -1,0 +1,181 @@
+/* about-page.css */
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.woff2') format('woff2'),
+    url('../fonts/Vazir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Bold.woff2') format('woff2'),
+    url('../fonts/Vazir-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Apply to entire page */
+* {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+}
+
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+
+}
+
+.about-page {
+    background-color: #020617;
+    color: #f1f5f9;
+    padding: 80px 0 100px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.about-page .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.about-page h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.about-layout {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Founder Card */
+.founder-card {
+    display: flex;
+    gap: 32px;
+    background: rgba(15, 23, 42, 0.35);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(67, 56, 202, 0.15);
+    flex: 1;
+    min-width: 300px;
+}
+
+.founder-avatar img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4f46e5;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.founder-content {
+    flex: 1;
+}
+
+.founder-content h2 {
+    font-size: 2rem;
+    margin: 0 0 8px;
+    color: #ffffff;
+}
+
+.founder-title {
+    color: #93c5fd;
+    font-weight: 500;
+    margin: 0 0 20px;
+    font-size: 1.1rem;
+}
+
+.founder-content p {
+    line-height: 1.7;
+    color: #dbeafe;
+    margin-bottom: 18px;
+    font-size: 1.02rem;
+}
+
+.signature {
+    font-style: italic;
+    color: #cbd5e1;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.philosophy-section h2 {
+    font-size: 1.8rem;
+    color: #e2e8f0;
+    margin-bottom: 28px;
+    font-weight: 600;
+}
+
+.principle {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.principle h3 {
+    font-size: 1.35rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.principle p {
+    color: #94a3b8;
+    line-height: 1.65;
+    font-size: 1.02rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .about-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .founder-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .founder-avatar {
+        order: -1;
+    }
+
+    .signature {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-page h1 {
+        font-size: 2.1rem;
+    }
+
+    .founder-card {
+        padding: 30px 20px;
+    }
+
+    .founder-avatar img {
+        width: 120px;
+        height: 120px;
+    }
+}

@@ -9,6 +9,39 @@ get_header(); ?>
         /* ---------------------------------- */
         /* GLOBAL STYLES & TYPOGRAPHY */
         /* ---------------------------------- */
+
+        /* Import Persian Font */
+        @font-face {
+            font-family: 'Vazir';
+            src: url('../fonts/Vazir.woff2') format('woff2'),
+            url('../fonts/Vazir.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Vazir';
+            src: url('../fonts/Vazir-Bold.woff2') format('woff2'),
+            url('../fonts/Vazir-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Apply to entire page */
+        * {
+            font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+        }
+
+        body {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+
+        }
+
+
         body {
             margin: 0;
             /* Using a system font stack for modern feel */
@@ -63,6 +96,95 @@ get_header(); ?>
             font-weight: 600;
             color: #4CAF50;
         }
+
+        /* ===== CONSULTATION SECTION ===== */
+
+        #consultation {
+            background: var(--dark);
+            position: relative;
+        }
+
+        .consultation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .consultation-card {
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .consultation-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit {
+            position: relative;
+            z-index: 1;
+        }
+        /* ===== CONSULTATION SECTION ===== */
+
 
         /* ---------------------------------- */
         /* BUTTON STYLES (CTA) */
@@ -430,9 +552,22 @@ get_header(); ?>
                 <div class="ai-cta-footer">
                     <h3 style="color: #E5E7EB;">آماده‌اید تا مزیت رقابتی خود را با هوش مصنوعی بسازید؟</h3>
                     <p style="color: #A0AEC0; margin-bottom: 2rem;">بیایید با هم داده‌های شما را به هوشمندی و ایده‌های شما را به واقعیت ملموس تبدیل کنیم.</p>
-                    <a href="[Your Schedule Consultation Form Link]" class="btn">
+                    <a  class="btn" href="#consultation">
                         👈 درخواست مشاوره رایگان هوش مصنوعی
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="consultation">
+            <div class="consultation-container">
+                <div class="consultation-card">
+                    <div class="consultation-header">
+                        <h2>مشاوره رایگان</h2>
+                        <p>ایده‌ای تو حوزه هوش مصنوعی دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
+                    </div>
+                    <?php echo do_shortcode('[contact-form-7 id="33e14a3" title="Free Conclusion Fa"]'); ?>
+
                 </div>
             </div>
         </section>
@@ -481,5 +616,8 @@ get_header(); ?>
             </div>
         </div>
     </main>
+<script>
+    document.getElementId('')
+</script>
 
 <?php get_footer(); ?>

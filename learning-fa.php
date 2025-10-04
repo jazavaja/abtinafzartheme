@@ -131,133 +131,80 @@ get_header(); ?>
             </div>
         </div>
 
+        <!----------------------------------------------------------------->
+
         <!-- Testimonials Section -->
+
         <div class="testimonials-section">
             <h2 class="section-title">نظرات دانشجویان</h2>
             <p style="text-align: center; color: #cbd5e1; margin-bottom: 2rem;">ببینید دانشجویان ما در مورد تجربه یادگیری خود چه می‌گویند</p>
 
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="student-info">
-                        <div class="student-avatar">AH</div>
-                        <div class="student-details">
-                            <h4>علی حسینی</h4>
-                            <p>توسعه‌دهنده پایتون</p>
-                        </div>
-                    </div>
-                    <div class="voice-player">
-                        <audio controls
-                               style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
-                            <source src="https://irsv.upmusics.com/dlw/7%20Band%20-%20Biroone%20Shahr%20(320).mp3"
-                                    type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+            <?php
+            $args = array(
+                'post_type'      => 'student_testimonial',
+                'posts_per_page' => -1,
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+            );
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="student-info">
-                        <div class="student-avatar">SM</div>
-                        <div class="student-details">
-                            <h4>سارا محمدی</h4>
-                            <p>توسعه‌دهنده فول‌استک</p>
-                        </div>
-                    </div>
-                    <div class="voice-player">
-                        <audio controls
-                               style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
-                            <source src="https://irsv.upmusics.com/dlw/7%20Band%20-%20Biroone%20Shahr%20(320).mp3"
-                                    type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+            $testimonials = new WP_Query($args);
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="student-info">
-                        <div class="student-avatar">RK</div>
-                        <div class="student-details">
-                            <h4>رضا کریمی</h4>
-                            <p>مهندس هوش مصنوعی</p>
-                        </div>
-                    </div>
-                    <div class="voice-player">
-                        <audio controls
-                               style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
-                            <source src="https://irsv.upmusics.com/dlw/7%20Band%20-%20Biroone%20Shahr%20(320).mp3"
-                                    type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+            if ($testimonials->have_posts()) :
+                ?>
+                <div class="testimonials-grid">
+                    <?php while ($testimonials->have_posts()) : $testimonials->the_post();
 
-                <!-- Testimonial 4 -->
-                <div class="testimonial-card">
-                    <div class="student-info">
-                        <div class="student-avatar">MA</div>
-                        <div class="student-details">
-                            <h4>مریم احمدی</h4>
-                            <p>توسعه‌دهنده ری‌اکت</p>
-                        </div>
-                    </div>
-                    <div class="voice-player">
-                        <audio controls
-                               style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
-                            <source src="https://irsv.upmusics.com/dlw/7%20Band%20-%20Biroone%20Shahr%20(320).mp3"
-                                    type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+                        // دریافت فیلدها از Pods
+                        $name_en  = pods_field('student_testimonial', get_the_ID(), 'student_name_fa', true);
+                        $title_en = pods_field('student_testimonial', get_the_ID(), 'student_title_fa', true);
+                        $audio    = pods_field('student_testimonial', get_the_ID(), 'audio_file', true); // باید آرایه باشه
+                        $rating   = (int) pods_field('student_testimonial', get_the_ID(), 'rating', true);
 
-                <!-- Testimonial 5 -->
-                <div class="testimonial-card">
-                    <div class="student-info">
-                        <div class="student-avatar">PM</div>
-                        <div class="student-details">
-                            <h4>پویا مرادی</h4>
-                            <p>توسعه‌دهنده بک‌اند</p>
-                        </div>
-                    </div>
-                    <div class="voice-player">
-                        <audio controls
-                               style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
-                            <source src="https://irsv.upmusics.com/dlw/7%20Band%20-%20Biroone%20Shahr%20(320).mp3"
-                                    type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+                        // اگر نام خالی بود، پیش‌فرض
+                        $name_en = $name_en ?: 'Anonymous';
+                        $title_en = $title_en ?: 'Student';
 
-                <!-- Testimonial 6 -->
-                <div class="testimonial-card">
-                    <div class="student-info">
-                        <div class="student-avatar">NR</div>
-                        <div class="student-details">
-                            <h4>ناوید رضایی</h4>
-                            <p>توسعه‌دهنده لاراول</p>
+                        // استخراج URL فایل صوتی
+                        $audio_url = is_array($audio) && isset($audio['guid']) ? esc_url($audio['guid']) : '';
+
+                        // دو حرف اول نام برای آواتار
+                        $avatar = strtoupper(substr($name_en, 0, 2));
+
+                        // ساخت ستاره‌ها
+                        $stars = str_repeat('⭐', min(5, max(0, $rating)));
+
+                        ?>
+                        <div class="testimonial-card">
+                            <div class="student-info">
+                                <div class="student-avatar"><?php echo esc_html($avatar); ?></div>
+                                <div class="student-details">
+                                    <h4><?php echo esc_html($name_en); ?></h4>
+                                    <p><?php echo esc_html($title_en); ?></p>
+                                </div>
+                            </div>
+                            <?php if ($audio_url) : ?>
+                                <div class="voice-player">
+                                    <audio controls
+                                           style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
+                                        <source src="<?php echo $audio_url; ?>" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            <?php endif; ?>
+                            <div class="rating"><?php echo $stars; ?></div>
                         </div>
-                    </div>
-                    <div class="voice-player">
-                        <audio controls
-                               style="width: 100%; height: 45px; border-radius: 15px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3);">
-                            <source src="https://irsv.upmusics.com/dlw/7%20Band%20-%20Biroone%20Shahr%20(320).mp3"
-                                    type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <?php endwhile; ?>
                 </div>
-            </div>
+                <?php
+                wp_reset_postdata();
+            else :
+                echo '<p style="text-align: center; color: #cbd5e1;">No testimonials found.</p>';
+            endif;
+            ?>
         </div>
+
+
+        <!----------------------------------------------------------------->
 
         <!-- Free Class CTA -->
         <div class="free-class-cta">

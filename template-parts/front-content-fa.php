@@ -75,24 +75,8 @@ get_header(); ?>
                     <h2>مشاوره رایگان</h2>
                     <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
                 </div>
-                <form class="consultation-form">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <input type="text" placeholder="نام شما" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="موبایل" required>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <textarea placeholder="پیام شما" required></textarea>
-                    </div>
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            ارسال درخواست
-                        </button>
-                    </div>
-                </form>
+                <?php echo do_shortcode('[contact-form-7 id="33e14a3" title="Free Conclusion Fa"]'); ?>
+
             </div>
         </div>
     </section>
