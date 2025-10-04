@@ -113,6 +113,13 @@ function register_custom_contact_widget() {
 add_action('widgets_init', 'register_custom_contact_widget');
 
 
+function allow_audio_uploads($mimes) {
+    $mimes['mp3'] = 'audio/mpeg';
+    $mimes['wav'] = 'audio/wav';
+    $mimes['ogg'] = 'audio/ogg';
+    return $mimes;
+}
+add_filter('upload_mimes', 'allow_audio_uploads');
 
 
 // Hook for non-logged in users
