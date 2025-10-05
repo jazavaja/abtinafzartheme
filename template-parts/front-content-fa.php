@@ -82,40 +82,52 @@ get_header(); ?>
     </section>
 
     <!-- Services Section -->
+<?php
+
+    $web = esc_html( get_key_value_url('web_develop_url_fa') );
+    $ai =  esc_html( get_key_value_url('ai_url_fa') );
+    $enterprise  =  esc_html( get_key_value_url('enterprise_url_fa') );
+    $blockchain  =  esc_html( get_key_value_url('blockchain_url_fa') );
+    $consultation  =  esc_html( get_key_value_url('consultation_startups_url_fa') );
+    $training   =  esc_html( get_key_value_url('training_url_fa') );
+
+
+?>
     <section id="services">
         <h2 class="section-title">خدمات من</h2>
         <p class="section-subtitle">آنچه می‌توانم برای شما انجام دهم</p>
         <div class="services-grid">
-            <div class="service-card">
+            <a href="<?php echo $web ?>" class="service-card">
                 <div class="service-icon">🚀</div>
                 <h3>توسعه وب از ابتدا تا انتها</h3>
-                <p>ما هر پلتفرم وب‌مبتنی که تصور می‌کنید می‌سازیم—با استفاده از استک‌های مدرن مانند Django، Laravel و React.</p>
-            </div>
-            <div class="service-card">
+                <p>ما هر پلتفرم وب‌مبتنی که تصور می‌کنید می‌سازیم—با استفاده از استک‌های مدرن مانند Django، Laravel و
+                    React.</p>
+            </a>
+            <a href="<?php echo $ai ?>" class="service-card">
                 <div class="service-icon">🧠</div>
                 <h3>راهکارهای هوش مصنوعی و داده</h3>
                 <p>سیستم‌های هوشمند برای پیش‌بینی، اتوماسیون و بینش با استفاده از یادگیری ماشین و مهندسی داده</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="<?php echo $enterprise ?>" class="service-card">
                 <div class="service-icon">🏛️</div>
                 <h3>سیستم‌های مدیریت سازمانی</h3>
                 <p>پلتفرم‌های جامع برای دانشگاه‌ها، مدارس و کارگزاری‌ها با استفاده از Java، Spring و معماری‌های امن</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="<?php echo $blockchain ?>" class="service-card">
                 <div class="service-icon">🔗</div>
                 <h3>راهکارهای بلاکچین و Web3</h3>
                 <p>توسعه کامل اپلیکیشن‌های غیرمتمرکز، قراردادهای هوشمند و اکوسیستم توکن در اتریوم و سایر بلاکچین‌ها</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="<?php echo $consultation ?>" class="service-card">
                 <div class="service-icon">💡</div>
                 <h3>مشاوره استارتاپ ها</h3>
                 <p>راهنمایی تخصصی در معماری محصول، انتخاب استک فناوری و نقشه‌راه توسعه مقیاس‌پذیر</p>
-            </div>
-            <div class="service-card">
+            </a>
+            <a href="<?php echo $training ?>" class="service-card">
                 <div class="service-icon">🎓</div>
                 <h3>آموزش حرفه‌ای و کارگاه‌ها</h3>
                 <p>آموزش فنی عملی در توسعه وب، هوش مصنوعی و طراحی سیستم برای تیم‌ها و دانشجویان</p>
-            </div>
+            </a>
         </div>
     </section>
 

@@ -106,6 +106,91 @@ class Contact_Info_Widget extends WP_Widget {
     }
 }
 
+
+//------------------------------------------------------------------------------------
+// بارگذاری TGM Plugin Activation
+if (!class_exists('TGM_Plugin_Activation')) {
+    require_once get_template_directory() . '/include/class-tgm-plugin-activation.php';
+}
+
+add_action('tgmpa_register', 'my_theme_register_required_plugins');
+function my_theme_register_required_plugins() {
+
+    $plugins = array(
+        // Contact Form 7
+        array(
+            'name'      => 'Contact Form 7',
+            'slug'      => 'contact-form-7',
+            'required'  => true, // اجباری
+        ),
+        // Flamingo (برای ذخیره فرم‌ها)
+        array(
+            'name'      => 'Flamingo',
+            'slug'      => 'flamingo',
+            'required'  => true,
+        ),
+        // Pods - Custom Content Types and Fields
+        array(
+            'name'      => 'Pods - Custom Content Types and Fields',
+            'slug'      => 'pods',
+            'required'  => true,
+        ),
+    );
+
+    $config = array(
+        'id'           => 'my-theme',
+        'default_path' => '',
+        'menu'         => 'install-required-plugins', // نام منو در پیشخوان
+        'has_notices'  => true,  // نمایش نوتیفیکیشن اگر پلاگین نصب نیست
+        'dismissable'  => false, // کاربر نتونه نوتیف رو ببنده (چون اجباریه!)
+        'is_automatic' => true,  // نصب و فعال‌سازی خودکار (با یک کلیک)
+        'message'      => 'این تم به پلاگین‌های زیر نیاز دارد تا به درستی کار کند.',
+    );
+
+    tgmpa($plugins, $config);
+}
+
+//------------------------------------------------------------------------------------------
+
+/**
+ * Get value by key from key_values custom post type
+ *
+ * @param string $key The key to search for
+ * @param mixed $default Default value if key not found
+ * @return string|mixed The value or default
+ */
+function get_key_value_url( $key, $default = '#' ) {
+    $args = array(
+        'post_type'      => 'key_values',
+        'posts_per_page' => 1,
+        'meta_query'     => array(
+            array(
+                'key'     => 'key',
+                'value'   => $key,
+                'compare' => '='
+            )
+        )
+    );
+
+    $key_values = new WP_Query($args);
+
+    if ( $key_values->have_posts() ) {
+        $key_values->the_post();
+        $value = pods_field( 'key_values', get_the_ID(), 'value', true );
+        wp_reset_postdata();
+        return $value;
+    }
+
+    wp_reset_postdata();
+    return $default;
+}
+
+
+
+
+//--------------------------------------------------------------------------------------------
+
+
 // ثبت ویجت
 function register_custom_contact_widget() {
     register_widget('Contact_Info_Widget');
