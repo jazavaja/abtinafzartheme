@@ -80,45 +80,54 @@
 </section>
 
 <!-- Services Section -->
+
+<?php
+
+$web = esc_html( get_key_value_url('web_develop_url_en') );
+$ai =  esc_html( get_key_value_url('ai_url_en') );
+$enterprise  =  esc_html( get_key_value_url('enterprise_url_en') );
+$blockchain  =  esc_html( get_key_value_url('blockchain_url_en') );
+$consultation  =  esc_html( get_key_value_url('consultation_startups_url_en') );
+$training   =  esc_html( get_key_value_url('training_url_en') );
+
+?>
 <section id="services">
     <h2 class="section-title">My Services</h2>
-    <p class="section-subtitle">What I can do for you</p>
+    <p class="section-subtitle">What I Can Do for You</p>
     <div class="services-grid">
-        <div class="service-card">
+        <a href="<?php echo $web ?>" class="service-card">
             <div class="service-icon">🚀</div>
-            <h3>End-to-End Web Development</h3>
-            <p>SWe build any web-based platform you envision—using modern stacks like Django, Laravel, and React.</p>
-        </div>
-        <div class="service-card">
+            <h3>Full-Stack Web Development</h3>
+            <p>We build any web-based platform you can imagine — using modern stacks such as Django, Laravel, and React.</p>
+        </a>
+        <a href="<?php echo $ai ?>" class="service-card">
             <div class="service-icon">🧠</div>
-            <h3>AI & Data Solutions</h3>
-            <p>Intelligent systems for forecasting, automation, and insights using machine learning and advanced data
-                pipelines</p>
-        </div>
-        <div class="service-card">
+            <h3>AI and Data Solutions</h3>
+            <p>Intelligent systems for prediction, automation, and insights using machine learning and data engineering.</p>
+        </a>
+        <a href="<?php echo $enterprise ?>" class="service-card">
             <div class="service-icon">🏛️</div>
             <h3>Enterprise Management Systems</h3>
-            <p>Comprehensive platforms for universities, schools, and brokerages using Java, Spring, and secure
-                architectures</p>
-        </div>
-        <div class="service-card">
+            <p>Comprehensive platforms for universities, schools, and brokerages built with Java, Spring, and secure architectures.</p>
+        </a>
+        <a href="<?php echo $blockchain ?>" class="service-card">
             <div class="service-icon">🔗</div>
-            <h3>Blockchain & Web3 Solutions</h3>
-            <p>End-to-end development of decentralized apps, smart contracts, and token ecosystems on Ethereum and other
-                blockchains</p>
-        </div>
-        <div class="service-card">
+            <h3>Blockchain and Web3 Solutions</h3>
+            <p>End-to-end development of decentralized applications, smart contracts, and token ecosystems on Ethereum and other blockchains.</p>
+        </a>
+        <a href="<?php echo $consultation ?>" class="service-card">
             <div class="service-icon">💡</div>
-            <h3>Consultation Startups & Businesses</h3>
-            <p>Expert guidance on product architecture, tech stack selection, and scalable development roadmaps</p>
-        </div>
-        <div class="service-card">
+            <h3>Startup Consultation</h3>
+            <p>Expert guidance in product architecture, technology stack selection, and scalable development roadmaps.</p>
+        </a>
+        <a href="<?php echo $training ?>" class="service-card">
             <div class="service-icon">🎓</div>
             <h3>Professional Training & Workshops</h3>
-            <p>Hands-on technical training in web development, AI, and system design for teams and students</p>
-        </div>
+            <p>Hands-on technical training in web development, artificial intelligence, and system design for teams and students.</p>
+        </a>
     </div>
 </section>
+
 
 <script>
     // Generate floating particles
