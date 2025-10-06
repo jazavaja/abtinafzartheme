@@ -186,7 +186,19 @@ function get_key_value_url( $key, $default = '#' ) {
 }
 
 
+function custom_header() {
+    if (function_exists('pll_current_language')) {
+        $lang = pll_current_language();
+    } else {
+        $lang = 'fa'; // default
+    }
 
+    if ($lang === 'en') {
+        get_header('en'); // loads header-en.php
+    } else {
+        get_header('fa'); // loads header-fa.php
+    }
+}
 
 //--------------------------------------------------------------------------------------------
 
@@ -310,7 +322,7 @@ function abtinafzar_enqueue_styles(): void {
     }
 }
 
-add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');
+add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles',1);
 
 
 /**

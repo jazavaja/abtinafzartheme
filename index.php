@@ -1,6 +1,6 @@
 <?php
 // Fallback if no specific template matches
-get_header(); ?>
+custom_header(); ?>
 <main class="max-w-3xl mx-auto px-4 py-20">
   <h1 class="text-3xl font-bold text-white">Blog</h1>
   <?php if (have_posts()): while (have_posts()): the_post(); ?>

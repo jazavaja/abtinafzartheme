@@ -3,7 +3,7 @@
  * Template Name: AI & Data Solutions
  */
 
-get_header(); ?>
+custom_header(); ?>
 
     <style>
         /* ---------------------------------- */
@@ -514,8 +514,10 @@ get_header(); ?>
                         <h2>Free Consultation</h2>
                         <p>Got an idea in the field of AI? Need technical advice? Let’s talk.</p>
                     </div>
-                    <?php echo do_shortcode('[contact-form-7 id="bbc6078" title="Free Conclusion"]'); ?>
-
+                    <?php
+                    $contact = get_key_value_url('contact_ai_en');
+                    echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+                    ?>
                 </div>
             </div>
         </section>

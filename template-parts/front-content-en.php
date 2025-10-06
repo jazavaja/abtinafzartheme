@@ -74,7 +74,10 @@
                 <h2> Free Consultation</h2>
                 <p>Have an idea? Need technical advice? Let's talk—no obligation</p>
             </div>
-            <?php echo do_shortcode('[contact-form-7 id="bbc6078" title="Free Conclusion"]'); ?>
+            <?php
+            $contact = get_key_value_url('contact_front_en');
+            echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion"]');
+            ?>
         </div>
     </div>
 </section>

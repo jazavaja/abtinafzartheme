@@ -3,7 +3,7 @@
  * Template Name: Contact Us English
  */
 
-get_header(); ?>
+custom_header(); ?>
     <main class="contact-page">
         <div class="container">
             <h1><?php the_title(); ?></h1>

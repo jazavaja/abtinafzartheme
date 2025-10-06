@@ -3,7 +3,7 @@
  * Template Name: Learning English
  */
 
-get_header(); ?>
+custom_header(); ?>
 
 
 
@@ -223,8 +223,10 @@ get_header(); ?>
                 <h3 class="modal-title">Register for Free Class</h3>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
-
-            <?php echo do_shortcode('[contact-form-7 id="1ffbcfa" title="Register for Free Class"]'); ?>
+            <?php
+            $contact = get_key_value_url('contact_learn_en');
+            echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+            ?>
         </div>
     </div>
 

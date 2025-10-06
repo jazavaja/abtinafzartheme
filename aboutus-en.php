@@ -5,7 +5,7 @@
 
 // Enqueue custom stylesheet
 
-get_header(); ?>
+custom_header(); ?>
 
     <main class="about-page">
         <div class="container">

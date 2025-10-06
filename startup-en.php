@@ -3,7 +3,7 @@
  * Template Name: Startup Consulting En
  */
 
-get_header(); ?>
+custom_header(); ?>
 
     <style>
         /* ---------------------------------- */
@@ -546,7 +546,11 @@ get_header(); ?>
                         <h2> Free Consultation</h2>
                         <p>Have an idea? Need technical advice? Let's talk—no obligation</p>
                     </div>
-                    <?php echo do_shortcode('[contact-form-7 id="bbc6078" title="Free Conclusion"]'); ?>
+                    <?php
+                    $contact = get_key_value_url('contact_startup_en');
+
+                    echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+                    ?>
                 </div>
             </div>
         </section>

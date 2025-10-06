@@ -3,7 +3,7 @@
  * Template Name: Learning Fa
  */
 
-get_header(); ?>
+custom_header(); ?>
 
 
 
@@ -221,8 +221,11 @@ get_header(); ?>
                 <h3 class="modal-title">ثبت‌نام برای جلسه رایگان</h3>
                 <button class="close-modal" id="closeModal">&times;</button>
             </div>
+            <?php
+            $contact = get_key_value_url('contact_learn_fa');
 
-            <?php echo do_shortcode('[contact-form-7 id="2f6453b" title="Register for Free Fa"]'); ?>
+            echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+            ?>
         </div>
     </div>
 

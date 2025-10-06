@@ -3,7 +3,7 @@
  * Template Name: Blockchain Services Fa
  */
 
-get_header(); ?>
+custom_header(); ?>
 
     <div class="blockchain-services-container">
         <!-- Hero Section -->
@@ -235,8 +235,10 @@ get_header(); ?>
                 <h3 class="modal-title">درخواست مشاوره بلاکچین</h3>
                 <button class="close-modal" id="closeBlockchainModal">&times;</button>
             </div>
-
-            <?php echo do_shortcode('[contact-form-7 id="33e14a3" title="Free Conclusion Fa"]'); ?>
+            <?php
+            $contact = get_key_value_url('contact_blockchain_fa');
+            echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+            ?>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
 /*
 Template Name: Privacy Policy
 */
-get_header(); ?>
+custom_header(); ?>
 
     <style>
         .privacy-policy {

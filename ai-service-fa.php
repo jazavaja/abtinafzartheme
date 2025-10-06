@@ -3,7 +3,7 @@
  * Template Name: AI & Data Solutions Fa
  */
 
-get_header(); ?>
+custom_header(); ?>
 
     <style>
         /* ---------------------------------- */
@@ -566,7 +566,10 @@ get_header(); ?>
                         <h2>مشاوره رایگان</h2>
                         <p>ایده‌ای تو حوزه هوش مصنوعی دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
                     </div>
-                    <?php echo do_shortcode('[contact-form-7 id="33e14a3" title="Free Conclusion Fa"]'); ?>
+                    <?php
+                    $contact = get_key_value_url('contact_ai_fa');
+                    echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+                    ?>
 
                 </div>
             </div>

@@ -3,7 +3,7 @@
  * Front Page - چندزبانه با Polylang
  */
 
-get_header();
+custom_header();
 
 // تشخیص زبان فعلی
 if (function_exists('pll_current_language')) {
@@ -31,5 +31,14 @@ if ($lang === 'en') {
     get_template_part('template-parts/front-content', 'fa');
 }
 
-get_footer();
+
+$locale = get_locale();
+if ($locale === 'fa_IR') {
+    get_footer('fa');
+} else {
+    get_footer('en');
+}
+
+
+//get_footer();
 ?>

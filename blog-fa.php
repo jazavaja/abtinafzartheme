@@ -3,7 +3,7 @@
  * Template Name: Blog List Fa
  */
 
-get_header(); ?>
+custom_header(); ?>
 
     <style>
         /* ---------------------------------- */

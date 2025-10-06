@@ -6,7 +6,7 @@
 
 // بارگذاری فایل سبک سفارشی
 
-get_header(); ?>
+custom_header(); ?>
 
     <main class="about-page">
         <div class="container">

@@ -3,8 +3,7 @@
  * Template Name: Home Page
  */
 
-get_header(); ?>
-
+?>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-gradient"></div>
@@ -75,7 +74,10 @@ get_header(); ?>
                     <h2>مشاوره رایگان</h2>
                     <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
                 </div>
-                <?php echo do_shortcode('[contact-form-7 id="33e14a3" title="Free Conclusion Fa"]'); ?>
+                <?php
+                $contact = get_key_value_url('contact_front_fa');
+                echo do_shortcode('[contact-form-7 id="' . $contact . '" title="Free Conclusion Fa"]');
+                ?>
 
             </div>
         </div>
@@ -84,12 +86,12 @@ get_header(); ?>
     <!-- Services Section -->
 <?php
 
-    $web = esc_html( get_key_value_url('web_develop_url_fa') );
-    $ai =  esc_html( get_key_value_url('ai_url_fa') );
-    $enterprise  =  esc_html( get_key_value_url('enterprise_url_fa') );
-    $blockchain  =  esc_html( get_key_value_url('blockchain_url_fa') );
-    $consultation  =  esc_html( get_key_value_url('consultation_startups_url_fa') );
-    $training   =  esc_html( get_key_value_url('training_url_fa') );
+$web = esc_html(get_key_value_url('web_develop_url_fa'));
+$ai = esc_html(get_key_value_url('ai_url_fa'));
+$enterprise = esc_html(get_key_value_url('enterprise_url_fa'));
+$blockchain = esc_html(get_key_value_url('blockchain_url_fa'));
+$consultation = esc_html(get_key_value_url('consultation_startups_url_fa'));
+$training = esc_html(get_key_value_url('training_url_fa'));
 
 
 ?>

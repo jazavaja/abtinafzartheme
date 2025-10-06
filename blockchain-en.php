@@ -3,7 +3,7 @@
  * Template Name: Blockchain Services En
  */
 
-get_header(); ?>
+custom_header(); ?>
 
     <div class="blockchain-services-container">
         <!-- Hero Section -->
@@ -235,8 +235,10 @@ get_header(); ?>
                 <h3 class="modal-title">Request Blockchain Consultation</h3>
                 <button class="close-modal" id="closeBlockchainModal">&times;</button>
             </div>
-
-            <?php echo do_shortcode('[contact-form-7 id="bbc6078" title="Free Conclusion"]'); ?>
+            <?php
+            $contact = get_key_value_url('contact_blockchain_en');
+            echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+            ?>
         </div>
     </div>
 
