@@ -135,12 +135,19 @@
 
                 <!-- CTA Button -->
                 <?php
-                $url_learning = home_url('/learning-en');
-                $button_text = 'Start Learning';
+                $url_primary = esc_html(get_key_value_url('url_primary_en', null));
+                $url_learning = home_url($url_primary);
+                $button_text = esc_html(get_key_value_url('text_primary_en', null));
+                if ($url_primary) {
+                    ?>
+                    <a href="<?php echo esc_url($url_learning); ?>"
+                       class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
+                        <?php echo esc_html($button_text); ?>
+                    </a>
+                    <?php
+                }
                 ?>
-                <a href="<?php echo esc_url($url_learning); ?>" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
-                    <?php echo esc_html($button_text); ?>
-                </a>
+
             </div>
         </div>
 
@@ -156,10 +163,16 @@
                 }
                 echo '</ul>';
             }
+            if ($url_primary) {
+                ?>
+
+                <a href="<?php echo $url_learning ?>"
+                   class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
+                    <?php echo $button_text ?>
+                </a>
+                <?php
+            }
             ?>
-            <a href="#pricing" class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
-                Start Learning
-            </a>
         </div>
     </header>
 

@@ -9,20 +9,42 @@
 
     <style>
         /* Blob animations */
-        .animate-blob { animation: blob 8s infinite; }
-        .animation-delay-2000 { animation-delay: -2s; }
-        .animation-delay-4000 { animation-delay: -4s; }
+        .animate-blob {
+            animation: blob 8s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: -2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: -4s;
+        }
 
         @keyframes blob {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(.9); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(.9);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
         }
 
         /* Mobile menu styles */
-        .mobile-menu { display: none; }
-        .mobile-menu.active { display: block; }
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -35,6 +57,7 @@
             padding: 0;
             z-index: 10;
         }
+
         .hamburger span {
             width: 100%;
             height: 2px;
@@ -44,8 +67,13 @@
         }
 
         @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .desktop-nav { display: none; }
+            .hamburger {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
 
             .mobile-menu {
                 position: absolute;
@@ -58,12 +86,14 @@
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
             }
+
             .mobile-menu ul {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
             }
+
             .mobile-menu a {
                 color: #cbd5e1;
                 text-decoration: none;
@@ -72,7 +102,11 @@
                 border-radius: 4px;
                 transition: color 0.2s;
             }
-            .mobile-menu a:hover { color: white; }
+
+            .mobile-menu a:hover {
+                color: white;
+            }
+
             .mobile-cta {
                 display: block !important;
                 margin-top: 1rem;
@@ -118,7 +152,7 @@
                         echo '<ul class="flex items-center space-x-8">';
                         foreach ((array)$menu_items as $menu_item) {
                             $title = esc_html($menu_item->title);
-                            $url   = esc_url($menu_item->url);
+                            $url = esc_url($menu_item->url);
                             echo '<li><a class="text-sm font-medium text-slate-300 hover:text-white transition-colors" href="' . $url . '">' . $title . '</a></li>';
                         }
                         echo '</ul>';
@@ -135,12 +169,18 @@
 
                 <!-- CTA Button -->
                 <?php
-                $url_learning = home_url('/learning-fa');
-                $button_text = 'شروع آموزش';
+                $url_primary = esc_html(get_key_value_url('url_primary_fa', null));
+                $url_learning = home_url($url_primary);
+                $button_text = esc_html(get_key_value_url('text_primary_fa', null));
+                if ($url_primary) {
+                    ?>
+                    <a href="<?php echo esc_url($url_learning); ?>"
+                       class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
+                        <?php echo esc_html($button_text); ?>
+                    </a>
+                    <?php
+                }
                 ?>
-                <a href="<?php echo esc_url($url_learning); ?>" class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
-                    <?php echo esc_html($button_text); ?>
-                </a>
             </div>
         </div>
 
@@ -151,15 +191,22 @@
                 echo '<ul>';
                 foreach ((array)$menu_items as $menu_item) {
                     $title = esc_html($menu_item->title);
-                    $url   = esc_url($menu_item->url);
+                    $url = esc_url($menu_item->url);
                     echo '<li><a href="' . $url . '">' . $title . '</a></li>';
                 }
                 echo '</ul>';
             }
+
+            if ($url_primary) {
+                ?>
+
+                <a href="<?php echo $url_learning ?>"
+                   class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
+                    <?php echo $button_text ?>
+                </a>
+                <?php
+            }
             ?>
-            <a href="#pricing" class="mobile-cta hidden px-4 py-2 mx-auto max-w-xs text-center text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-md hover:opacity-90 transition-opacity">
-                شروع آموزش
-            </a>
         </div>
     </header>
 
@@ -167,7 +214,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const toggle = document.getElementById('mobile-menu-toggle');
-            const menu   = document.getElementById('mobile-menu');
+            const menu = document.getElementById('mobile-menu');
 
             if (toggle && menu) {
                 toggle.addEventListener('click', () => {
