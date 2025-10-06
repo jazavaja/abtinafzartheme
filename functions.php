@@ -10,102 +10,6 @@ register_nav_menus(
     )
 );
 
-// ثبت ویجت کاستوم
-class Contact_Info_Widget extends WP_Widget {
-
-    public function __construct() {
-        parent::__construct(
-            'contact_info_widget', // Base ID
-            'ویجت تماس با ما', // Name
-            array(
-                'description' => 'ویجت اختصاصی برای نمایش اطلاعات تماس',
-                'classname' => 'custom-contact-widget'
-            ) // Args
-        );
-    }
-
-    // بخش نمایش در front-end
-    public function widget($args, $instance) {
-        // داده‌ها را از ACF دریافت می‌کنیم
-        $widget_id = 'widget_' . $args['widget_id'];
-        $phone = get_field('phone_number', $widget_id);
-        $email = get_field('email_address', $widget_id);
-        $address = get_field('address', $widget_id);
-        $show_icons = get_field('show_icons', $widget_id);
-
-        $title = !empty($instance['title']) ? $instance['title'] : 'تماس با ما';
-
-        echo $args['before_widget'];
-        echo $args['before_title'] . apply_filters('widget_title', $title) . $args['after_title'];
-        ?>
-
-        <div class="custom-contact-widget-content">
-            <?php if($phone): ?>
-                <div class="contact-item">
-                    <?php if($show_icons): ?>
-                        <span class="contact-icon">📞</span>
-                    <?php endif; ?>
-                    <span class="contact-text"><?php echo esc_html($phone); ?></span>
-                </div>
-            <?php endif; ?>
-
-            <?php if($email): ?>
-                <div class="contact-item">
-                    <?php if($show_icons): ?>
-                        <span class="contact-icon">📧</span>
-                    <?php endif; ?>
-                    <span class="contact-text">
-                    <a href="mailto:<?php echo esc_attr($email); ?>">
-                        <?php echo esc_html($email); ?>
-                    </a>
-                </span>
-                </div>
-            <?php endif; ?>
-
-            <?php if($address): ?>
-                <div class="contact-item">
-                    <?php if($show_icons): ?>
-                        <span class="contact-icon">📍</span>
-                    <?php endif; ?>
-                    <span class="contact-text"><?php echo nl2br(esc_html($address)); ?></span>
-                </div>
-            <?php endif; ?>
-        </div>
-
-        <?php
-        echo $args['after_widget'];
-    }
-
-    // فرم مدیریت در بک-اند
-    public function form($instance) {
-        $title = !empty($instance['title']) ? $instance['title'] : 'تماس با ما';
-        ?>
-        <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>">
-                عنوان ویجت:
-            </label>
-            <input
-                class="widefat"
-                id="<?php echo esc_attr($this->get_field_id('title')); ?>"
-                name="<?php echo esc_attr($this->get_field_name('title')); ?>"
-                type="text"
-                value="<?php echo esc_attr($title); ?>"
-            >
-        </p>
-        <p style="color: #666; font-style: italic;">
-            تنظیمات اطلاعات تماس از طریق Advanced Custom Fields در دسترس است.
-        </p>
-        <?php
-    }
-
-    // ذخیره سازی تنظیمات
-    public function update($new_instance, $old_instance) {
-        $instance = array();
-        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-        return $instance;
-    }
-}
-
 
 //------------------------------------------------------------------------------------
 // بارگذاری TGM Plugin Activation
@@ -203,13 +107,6 @@ function custom_header() {
 //--------------------------------------------------------------------------------------------
 
 
-// ثبت ویجت
-function register_custom_contact_widget() {
-    register_widget('Contact_Info_Widget');
-}
-add_action('widgets_init', 'register_custom_contact_widget');
-
-
 function always_load_cf7_scripts() {
     if (function_exists('wpcf7_enqueue_scripts')) {
         wpcf7_enqueue_scripts();
@@ -235,94 +132,94 @@ add_filter('upload_mimes', 'allow_audio_uploads');
 add_action('admin_post_nopriv_submit_contact_form', 'handle_contact_form_submission');
 
 
-// Enqueue theme styles
-function abtinafzar_enqueue_styles(): void {
-    // Main theme stylesheet
-    wp_enqueue_style('abtinafzar-style', get_stylesheet_uri());
-
-    // Load page-specific styles only when needed
-    if (is_page_template('page-contact-en.php')) {
-        wp_enqueue_style(
-            'abtinafzar-contact-style',
-            get_template_directory_uri() . '/assets/css/contact-page.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('page-contact-fa.php')) {
-        wp_enqueue_style(
-            'abtinafzar-contact-style',
-            get_template_directory_uri() . '/assets/css/contact-page.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('learning-en.php')) {
-        wp_enqueue_style(
-            'abtinafzar-contact-style',
-            get_template_directory_uri() . '/assets/css/learning-en.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('learning-fa.php')) {
-        wp_enqueue_style(
-            'abtinafzar-contact-style',
-            get_template_directory_uri() . '/assets/css/learning-en.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('aboutus-en.php')) {
-        wp_enqueue_style(
-            'abtinafzar-about-en-style',
-            get_template_directory_uri() . '/assets/css/aboutus.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('aboutus-fa.php')) {
-        wp_enqueue_style(
-            'abtinafzar-about-fa-style',
-            get_template_directory_uri() . '/assets/css/aboutus-fa.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('front-page-en.php')) {
-        wp_enqueue_style(
-            'abtinafzar-homepage-style',
-            get_template_directory_uri() . '/assets/css/homepage.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-
-    if (is_page_template('front-page.php')) {
-        wp_enqueue_style(
-            'abtinafzar-homepage-style',
-            get_template_directory_uri() . '/assets/css/homepage.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-    if (is_page_template('privacy.php')) {
-        wp_enqueue_style(
-            'abtinafzar-homepage-style',
-            get_template_directory_uri() . '/assets/css/privacy.css',
-            array('abtinafzar-style'),
-            '1.0.0'
-        );
-    }
-}
-
-add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles',1);
+//// Enqueue theme styles
+//function abtinafzar_enqueue_styles(): void {
+//    // Main theme stylesheet
+//    wp_enqueue_style('abtinafzar-style', get_stylesheet_uri());
+//
+//    // Load page-specific styles only when needed
+//    if (is_page_template('page-contact-en.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-contact-style',
+//            get_template_directory_uri() . '/assets/css/contact-page.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('page-contact-fa.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-contact-style',
+//            get_template_directory_uri() . '/assets/css/contact-page.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('learning-en.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-contact-style',
+//            get_template_directory_uri() . '/assets/css/learning-en.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('learning-fa.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-contact-style',
+//            get_template_directory_uri() . '/assets/css/learning-en.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('aboutus-en.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-about-en-style',
+//            get_template_directory_uri() . '/assets/css/aboutus.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('aboutus-fa.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-about-fa-style',
+//            get_template_directory_uri() . '/assets/css/aboutus-fa.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('front-page-en.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-homepage-style',
+//            get_template_directory_uri() . '/assets/css/homepage.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//
+//    if (is_page_template('front-page.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-homepage-style',
+//            get_template_directory_uri() . '/assets/css/homepage.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//    if (is_page_template('privacy.php')) {
+//        wp_enqueue_style(
+//            'abtinafzar-homepage-style',
+//            get_template_directory_uri() . '/assets/css/privacy.css',
+//            array('abtinafzar-style'),
+//            '1.0.0'
+//        );
+//    }
+//}
+//
+//add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles',1);
 
 
 /**
