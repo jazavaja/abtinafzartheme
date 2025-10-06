@@ -103,6 +103,14 @@ function custom_header() {
         get_header('fa'); // loads header-fa.php
     }
 }
+function custom_footer(){
+    $locale = get_locale();
+    if ($locale === 'fa_IR') {
+        get_footer('fa');
+    } else {
+        get_footer('en');
+    }
+}
 
 //--------------------------------------------------------------------------------------------
 

@@ -566,4 +566,4 @@ custom_header(); ?>
 
     </main>
 
-<?php get_footer(); ?>
+<?php custom_footer(); ?>

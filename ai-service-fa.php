@@ -623,4 +623,4 @@ custom_header(); ?>
     document.getElementId('')
 </script>
 
-<?php get_footer(); ?>
+<?php custom_footer(); ?>

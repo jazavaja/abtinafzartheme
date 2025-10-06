@@ -30,14 +30,14 @@ if ($lang === 'en') {
     );
     get_template_part('template-parts/front-content', 'fa');
 }
+custom_footer();
 
-
-$locale = get_locale();
-if ($locale === 'fa_IR') {
-    get_footer('fa');
-} else {
-    get_footer('en');
-}
+//$locale = get_locale();
+//if ($locale === 'fa_IR') {
+//    get_footer('fa');
+//} else {
+//    get_footer('en');
+//}
 
 
 //get_footer();

@@ -147,4 +147,4 @@ custom_header(); ?>
         </div>
     </div>
 
-<?php get_footer(); ?>
+<?php custom_footer(); ?>

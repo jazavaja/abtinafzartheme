@@ -713,4 +713,4 @@ custom_header(); ?>
         });
     </script>
 
-<?php get_footer(); ?>
+<?php custom_footer(); ?>
