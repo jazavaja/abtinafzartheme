@@ -230,17 +230,6 @@ custom_header(); ?>
         </div>
     </div>
 
-    <select id="courseSelect" name="course" class="form-control" required>
-        <option value="">Choose a course</option>
-        <option value="Python Programming">Python Programming</option>
-        <option value="PHP Development">PHP Development</option>
-        <option value="Laravel Framework">Laravel Framework</option>
-        <option value="Django Framework">Django Framework</option>
-        <option value="AI & Machine Learning">AI & Machine Learning</option>
-        <option value="JavaScript Mastery">JavaScript Mastery</option>
-        <option value="React Development">React Development</option>
-    </select>
-
 
     <script>
 

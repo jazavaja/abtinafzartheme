@@ -229,16 +229,6 @@ custom_header(); ?>
         </div>
     </div>
 
-    <select id="courseSelect" name="course" class="form-control" required>
-        <option value="">یک دوره را انتخاب کنید</option>
-        <option value="برنامه‌نویسی پایتون">برنامه‌نویسی پایتون</option>
-        <option value="توسعه وب با PHP">توسعه وب با PHP</option>
-        <option value="فریمورک لاراول">فریمورک لاراول</option>
-        <option value="فریمورک جنگو">فریمورک جنگو</option>
-        <option value="هوش مصنوعی و یادگیری ماشین">هوش مصنوعی و یادگیری ماشین</option>
-        <option value="تسلط بر جاوا اسکریپت">تسلط بر جاوا اسکریپت</option>
-        <option value="توسعه با ری‌اکت">توسعه با ری‌اکت</option>
-    </select>
 
 
     <script>

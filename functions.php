@@ -340,6 +340,18 @@ add_action('wp_enqueue_scripts', function () {
     }
 }, 20);
 
+// Enqueue Blockchain EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('blockchain-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-blockchain-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
 // Enqueue AI Service FA page-specific stylesheet
 add_action('wp_enqueue_scripts', function () {
     if (is_page_template('ai-service-fa.php')) {
@@ -391,3 +403,15 @@ function abtinafzar_enqueue_styles() {
     );
 }
 add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');
+
+// Enqueue Blockchain FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('blockchain-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-blockchain-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);

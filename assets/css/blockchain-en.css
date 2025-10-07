@@ -1,0 +1,65 @@
+/* Blockchain EN page styles (scoped) */
+.blockchain-services-container{width:100%;max-width:none;margin:0;padding:0;color:#f8fafc;background-color:#020617;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;direction:ltr;text-align:left}
+.blockchain-services-container .section-title{text-align:center;font-size:2.5rem;margin-bottom:1rem;color:#f8fafc;position:relative}
+.blockchain-services-container .section-title:after{content:'';display:block;width:80px;height:4px;background:linear-gradient(90deg,#10b981,#3b82f6);margin:1rem auto;border-radius:2px}
+.blockchain-services-container .section-description{text-align:center;color:#cbd5e1;margin-bottom:3rem;font-size:1.2rem}
+.blockchain-services-container .blockchain-hero{display:flex;align-items:center;justify-content:space-between;padding:4rem 2rem 5rem;gap:3rem;width:100%}
+.blockchain-services-container .hero-content h1{font-size:3rem;margin-bottom:1.5rem;background:linear-gradient(90deg,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.blockchain-services-container .hero-content p{font-size:1.4rem;color:#cbd5e1;margin-bottom:2rem}
+.blockchain-services-container .hero-badges{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.blockchain-services-container .hero-badge{background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.5);padding:.5rem 1rem;border-radius:50px;font-size:.9rem}
+.blockchain-services-container .hero-visual{flex:0 0 300px;display:flex;align-items:center;justify-content:center}
+.blockchain-services-container .visual-element{font-size:10rem;animation:blockchain-float 3s ease-in-out infinite}
+@keyframes blockchain-float{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+.blockchain-services-container .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin-top:3rem;padding:0 2rem}
+.blockchain-services-container .service-card{background:rgba(30,41,59,.5);border-radius:16px;padding:2rem;transition:transform .3s ease,box-shadow .3s ease;border:1px solid rgba(16,185,129,.2);position:relative;overflow:hidden;color:#f8fafc;text-decoration:none}
+.blockchain-services-container .service-card:hover{transform:translateY(-10px);box-shadow:0 10px 30px rgba(16,185,129,.2)}
+.blockchain-services-container .service-card:before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#10b981,#3b82f6)}
+.blockchain-services-container .service-icon{font-size:3rem;margin-bottom:1.5rem}
+.blockchain-services-container .service-card h3{font-size:1.5rem;margin-bottom:1rem;color:#f8fafc;font-weight:700}
+.blockchain-services-container .service-card p{color:#cbd5e1;margin-bottom:1.5rem}
+.blockchain-services-container .service-features{list-style:none;padding:0;margin-bottom:1.5rem}
+.blockchain-services-container .service-features li{padding:.5rem 0;color:#94a3b8;position:relative;padding-left:1.5rem}
+.blockchain-services-container .service-features li:before{content:'✓';position:absolute;left:0;color:#10b981;font-weight:700}
+.blockchain-services-container .service-tech{display:flex;flex-wrap:wrap;gap:.5rem}
+.blockchain-services-container .tech-badge{background:rgba(59,130,246,.2);color:#60a5fa;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;border:1px solid rgba(59,130,246,.3)}
+.blockchain-services-container .networks-section{padding:5rem 2rem;width:100%}
+.blockchain-services-container .networks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;margin-top:3rem}
+.blockchain-services-container .network-item{display:flex;flex-direction:column;align-items:center;padding:2rem 1rem;background:rgba(30,41,59,.3);border-radius:12px;transition:all .3s ease;border:1px solid rgba(59,130,246,.1)}
+.blockchain-services-container .network-item:hover{transform:translateY(-5px);border-color:rgba(59,130,246,.3)}
+.blockchain-services-container .network-logo{font-size:3rem;margin-bottom:1rem}
+.blockchain-services-container .network-name{font-weight:700;color:#f8fafc;text-align:center}
+.blockchain-services-container .blockchain-process-section{padding:5rem 2rem;width:100%}
+.blockchain-services-container .process-steps{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-top:3rem}
+.blockchain-services-container .process-step{flex:1;min-width:250px;text-align:center;padding:2rem 1rem;position:relative}
+.blockchain-services-container .step-number{width:60px;height:60px;background:linear-gradient(135deg,#10b981,#3b82f6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;margin:0 auto 1.5rem;position:relative;z-index:2}
+.blockchain-services-container .process-step h3{font-size:1.3rem;margin-bottom:1rem;color:#f8fafc}
+.blockchain-services-container .process-step p{color:#cbd5e1}
+.blockchain-services-container .blockchain-consultation-cta{background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(59,130,246,.1));border-radius:20px;padding:4rem 2rem;text-align:center;margin:4rem 2rem;border:1px solid rgba(16,185,129,.3)}
+.blockchain-services-container .cta-content h2{font-size:2.5rem;margin-bottom:1rem;color:#f8fafc}
+.blockchain-services-container .cta-content p{font-size:1.2rem;color:#cbd5e1;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+.blockchain-services-container .consultation-features{display:flex;justify-content:center;gap:3rem;margin-bottom:2rem;flex-wrap:wrap}
+.blockchain-services-container .feature-item{display:flex;align-items:center;gap:.5rem;color:#cbd5e1}
+.blockchain-services-container .feature-icon{font-size:1.5rem}
+.blockchain-services-container .cta-button{display:inline-block;background:linear-gradient(90deg,#10b981,#3b82f6);color:#fff;padding:1rem 2rem;border-radius:50px;font-weight:700;cursor:pointer;transition:all .3s ease;border:none;font-size:1.1rem;text-decoration:none}
+.blockchain-services-container .cta-button:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(16,185,129,.3)}
+.blockchain-services-container .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(2,6,23,.8);display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(5px)}
+.blockchain-services-container .modal-overlay.active{display:flex}
+.blockchain-services-container .modal-content{background:#0f172a;border-radius:20px;padding:2rem;width:90%;max-width:500px;border:1px solid rgba(16,185,129,.3);box-shadow:0 20px 40px rgba(0,0,0,.3);position:relative}
+.blockchain-services-container .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.blockchain-services-container .modal-title{font-size:1.5rem;color:#f8fafc;margin:0}
+.blockchain-services-container .close-modal{background:none;border:none;color:#cbd5e1;font-size:2rem;cursor:pointer;line-height:1}
+.blockchain-services-container .close-modal:hover{color:#f8fafc}
+.blockchain-services-container .form-control{width:100%;padding:1rem;margin-bottom:1rem;background:rgba(30,41,59,.5);border:1px solid rgba(16,185,129,.3);border-radius:10px;color:#f8fafc;font-size:1rem}
+.blockchain-services-container .form-control:focus{outline:none;border-color:#10b981;box-shadow:0 0 0 2px rgba(16,185,129,.2)}
+@media (max-width:768px){
+  .blockchain-services-container .blockchain-hero{flex-direction:column;text-align:center;padding:2rem 0}
+  .blockchain-services-container .hero-content h1{font-size:2.5rem}
+  .blockchain-services-container .visual-element{font-size:6rem}
+  .blockchain-services-container .section-title{font-size:2rem}
+  .blockchain-services-container .process-steps{flex-direction:column}
+  .blockchain-services-container .hero-badges{justify-content:center}
+  .blockchain-services-container .consultation-features{flex-direction:column;gap:1rem}
+  .blockchain-services-container .services-grid{grid-template-columns:1fr}
+}
+

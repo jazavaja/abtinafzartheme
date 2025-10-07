@@ -20,7 +20,7 @@ body { margin: 0; background-color: #020617; color: #ffffff; line-height: 1.8; d
 /* LINKS & TYPOGRAPHY */
 a { color: #66BB6A; text-decoration: none; transition: color 0.3s ease; }
 a:hover { color: #81C784; text-decoration: underline; }
-.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+.container { max-width: 1200px; margin: 0 auto; }
 h1, h2, h3, h4 { margin-bottom: 1rem; font-weight: 700; line-height: 1.2; }
 h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: #ffffff; }
 h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-top: 3rem; margin-bottom: 2rem; border-right: 4px solid #4CAF50; padding-right: 1rem; border-left: none; padding-left: 0; }

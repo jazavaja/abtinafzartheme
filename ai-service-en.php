@@ -10,7 +10,7 @@ custom_header(); ?>
             <div class="container">
                 <p class="tagline">Enterprise AI & Data Engineering</p>
                 <h1>Future-Proof Intelligence, <br> Built Today.</h1>
-                <p class="subtitle">We deploy custom, scalable AI systems for **forecasting, automation, and deep insights**, leveraging modern machine learning and full-stack integration.</p>
+                <p class="subtitle">We deploy custom, scalable AI systems for forecasting, automation, and deep insights, leveraging modern machine learning and full-stack integration.</p>
                 <a href="#ai-solutions" class="btn">Explore AI Solutions</a>
             </div>
         </section>
@@ -120,8 +120,8 @@ custom_header(); ?>
                 <div class="founder-content">
                     <h2>The Engine Behind Our Work</h2>
                     <p class="founder-title">Javad | Founder & Lead AI/Full-Stack Engineer</p>
-                    <p>Our solutions are engineered by **Javad**, who brings nearly a decade of experience building intelligent, scalable systems. This unique solo-founder model guarantees that every project benefits from direct, high-level expertise.</p>
-                    <p>His combined mastery of **PHP (Laravel)**, **Python (Django & ML/AI)**, and enterprise **Java (Spring Boot)**, alongside modern front-end frameworks, ensures solutions are robust from the database to the browser.</p>
+                    <p>Our solutions are engineered by Javad, who brings nearly a decade of experience building intelligent, scalable systems. This unique solo-founder model guarantees that every project benefits from direct, high-level expertise.</p>
+                    <p>His combined mastery of PHP (Laravel), Python (Django & ML/AI), and enterprise Java (Spring Boot), alongside modern front-end frameworks, ensures solutions are robust from the database to the browser.</p>
                     <p>From AI stock prediction systems to large-scale fleet management platforms, our commitment is to performance, clean code, and tangible business impact. This singular point of contact ensures seamless communication and full project ownership.</p>
                     <div class="founder-signature">– Committed to excellence in every line of code.</div>
                 </div>
