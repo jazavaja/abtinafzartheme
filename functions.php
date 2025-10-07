@@ -326,16 +326,68 @@ add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
 });
 
-add_action('wp_enqueue_scripts', function () {
-    // Tailwind via CDN
-    wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], null, false);
-    // Google Fonts
-    wp_enqueue_style('inter-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap', [], null);
-    // Lucide icons
-    wp_enqueue_script('lucide-icons', 'https://unpkg.com/lucide@latest', [], null, true);
-    // Custom inline CSS
-    wp_add_inline_style('inter-font',
-        ":root{--font-inter:'Inter',sans-serif;} body{font-family:var(--font-inter);} .font-sans{font-family:var(--font-inter);}"
-    );
-});
+// Removed Tailwind/Lucide enqueues to use theme's own CSS only
 
+// Enqueue AI Service EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('ai-service-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-ai-service-en',
+            get_template_directory_uri() . '/assets/css/ai-service-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/ai-service-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue AI Service FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('ai-service-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-ai-service-fa',
+            get_template_directory_uri() . '/assets/css/ai-service-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/ai-service-fa.css')
+        );
+    }
+}, 20);
+
+// Enqueue Startup Consulting (EN) stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('startup-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-startup-en',
+            get_template_directory_uri() . '/assets/css/startup-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/startup-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Startup Consulting (FA) stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('startup-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-startup-fa',
+            get_template_directory_uri() . '/assets/css/startup-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/startup-fa.css')
+        );
+    }
+}, 20);
+
+function abtinafzar_enqueue_styles() {
+    $theme_version = wp_get_theme()->get('Version');
+
+    // Main stylesheet
+    wp_enqueue_style('abtinafzar-style', get_stylesheet_uri(), [], $theme_version);
+
+    // Fonts stylesheet (relative path works correctly)
+    wp_enqueue_style(
+        'abtinafzar-fonts',
+        get_template_directory_uri() . '/assets/css/fonts.css',
+        [],
+        $theme_version
+    );
+}
+add_action('wp_enqueue_scripts', 'abtinafzar_enqueue_styles');

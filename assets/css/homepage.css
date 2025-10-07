@@ -1,34 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-
-
-/* Import Persian Font */
-@font-face {
-    font-family: 'Vazir';
-    src: url('../fonts/Vazir.woff2') format('woff2'),
-    url('../fonts/Vazir.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Vazir';
-    src: url('../fonts/Vazir-Bold.woff2') format('woff2'),
-    url('../fonts/Vazir-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
 /* Apply to entire page */
-* {
-    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
-}
 
 body {
     direction: rtl;
     text-align: right;
-    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+    /* font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important; */
 
 }
 

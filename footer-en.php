@@ -3,28 +3,28 @@
  * Footer Template (English)
  */
 ?>
-<footer class="border-t border-white/10 bg-slate-900/50">
-    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
 
             <!-- Column 1: Logo & Description -->
-            <div class="space-y-6">
-                <div class="h-12 w-auto" style="height: 10% !important; width: 70px !important;">
+            <div class="footer-col">
+                <div class="footer-logo" style="height: 10% !important; width: 70px !important;">
                     <?php the_custom_logo(); ?>
                 </div>
-                <p class="text-sm text-slate-400 leading-relaxed pt-5">
+                <p class="footer-desc">
                     Abtinafzar Javan | Innovative software solutions for the digital era
                 </p>
 
                 <!-- Social Media -->
-                <div class="flex gap-4">
-                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                <div class="socials">
+                    <a href="#" class="social-link">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12..."/></svg>
                     </a>
-                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                    <a href="#" class="social-link">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825..."/></svg>
                     </a>
-                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                    <a href="#" class="social-link">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12..."/></svg>
                     </a>
                 </div>
@@ -44,9 +44,9 @@
             ?>
 
             <!-- Column 2: Quick Links -->
-            <div class="space-y-6">
-                <h3 class="text-white font-semibold text-lg">Quick Links</h3>
-                <div class="flex flex-col gap-3">
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <div class="footer-links">
                     <?php
                     if ($quick_links->have_posts()) :
                         while ($quick_links->have_posts()) : $quick_links->the_post();
@@ -56,15 +56,14 @@
                             // Build full link safely
                             $url = esc_url(home_url($link_en));
                             ?>
-                            <a href="<?php echo $url; ?>"
-                               class="text-sm text-slate-400 hover:text-white transition-all hover:translate-x-1 inline-block">
+                            <a href="<?php echo $url; ?>" class="footer-link">
                                 → <?php echo esc_html($name_en); ?>
                             </a>
                         <?php
                         endwhile;
                         wp_reset_postdata();
                     else :
-                        echo '<p class="text-slate-500 text-sm">No links found.</p>';
+                        echo '<p class="footer-empty">No links found.</p>';
                     endif;
                     ?>
                 </div>
@@ -72,18 +71,18 @@
 
 
             <!-- Column 3: Location Map -->
-            <div class="space-y-6">
-                <h3 class="text-white font-semibold text-lg">Our Location</h3>
-                <div class="rounded-lg overflow-hidden shadow-lg border border-white/10">
+            <div class="footer-col">
+                <h3 class="footer-title">Our Location</h3>
+                <div class="map-card">
                     <img
                             src="https://map.ir/static?x-api-key=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjdiM2NlYzA2ZWE2NzUyYjMwMDEyYTkxMmMzMGQ5MjU1ODA5OTQyZTI5N2QyMTU0ZjAxNDM5ODA5ZTk3NWY4YzMwNmZiNjBmZDcyOWZmOGI5In0.eyJhdWQiOiIyNTQ3MSIsImp0aSI6IjdiM2NlYzA2ZWE2NzUyYjMwMDEyYTkxMmMzMGQ5MjU1ODA5OTQyZTI5N2QyMTU0ZjAxNDM5ODA5ZTk3NWY4YzMwNmZiNjBmZDcyOWZmOGI5IiwiaWF0IjoxNzAzMzQ0NjA1LCJuYmYiOjE3MDMzNDQ2MDUsImV4cCI6MTcwNTg1MDIwNSwic3ViIjoiIiwic2NvcGVzIjpbImJhc2ljIl19.kOJQzJ2Yo5M3nGHj8JP_axj0yrpqMOgnuc4AFrw53umvos1rzIJRxPnRGXKyPDO_CdxfstPFWFhN-M1AExySjwS2l9VnfiBMsnoVOMhr1IVWqfIGI35hhsa1u6xJSBwdlfbkpT5qKJMmaJ4EQjdjuWqHGG4rMzbD1H1EGv5gXyLfMW-FTVq4iBZ_nKrpEPTowCdEGd8IT70iXUK27tljbFgkR0AHhd60I76Lq5hd-TZj435gY3phJna0EU1nakIX0HWtc6hCamyyg_-FogrZEVg276cjlAlxTt17KUzwJutjbaH5Htf6iQKDZEUaz3BQLFa3kfCVFhOTrBLTATpWzQ&width=700&height=500&markers=color:red|label:a|51.394912,35.72164&zoom_level=17"
                             alt="Rankola Location Map"
-                            class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            class="map-image"
                             loading="lazy"
                     />
                 </div>
-                <p class="text-sm text-slate-400">
-                    <svg class="w-4 h-4 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <p class="footer-location">
+                    <svg class="icon-geo mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -94,8 +93,8 @@
             </div>
         </div>
 
-        <div class="pt-8 border-t border-white/10">
-            <p class="text-center text-sm text-slate-400">
+        <div class="footer-bottom">
+            <p class="footer-copy">
                 © <?php echo esc_html(date('Y')); ?> AbtinAfzarJavan. All rights reserved.
             </p>
         </div>
