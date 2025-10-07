@@ -1152,3 +1152,103 @@ body {
     .mobile-menu a:hover { color: white; }
     .mobile-cta { display: block !important; margin-top: 1rem; text-align: center; }
 }
+
+
+/*===========================================================================*/
+
+/* استایل عمومی برای فرم‌های Contact Form 7 */
+.wpcf7-form-control {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 16px;
+    color: #ffffff;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+/* حالت فوکوس (وقتی کاربر داخل فیلد کلیک می‌کنه) */
+.wpcf7-form-control:focus {
+    border-color: #4da6ff;
+    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.25);
+}
+
+/* حالت hover */
+.wpcf7-form-control:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* رنگ پلیس‌هولدر (متن راهنما داخل فیلد) */
+.wpcf7-form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+/* برای سازگاری با مرورگرهای قدیمی‌تر */
+.wpcf7-form-control:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.wpcf7-form-control::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* حالت خطا (اگر فیلد اجباری باشه و خالی بمونه) */
+.wpcf7-not-valid .wpcf7-form-control {
+    border-color: #ff6b6b !important;
+    background-color: rgba(255, 107, 107, 0.08) !important;
+}
+
+/* لیبل‌ها (اگر استفاده می‌کنید) */
+.wpcf7 label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+/* استایل دکمه‌ی ارسال */
+.wpcf7 input[type="submit"],
+.wpcf7 input.wpcf7-submit {
+    background: linear-gradient(135deg, #4da6ff, #0077ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
+    letter-spacing: 0.5px;
+    font-family: inherit;
+}
+
+/* حالت هاور */
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 input.wpcf7-submit:hover {
+    background: linear-gradient(135deg, #5db5ff, #0088ff);
+    box-shadow: 0 6px 16px rgba(0, 119, 255, 0.45);
+    transform: translateY(-2px);
+}
+
+/* حالت فوکوس (دسترسی‌پذیری) */
+.wpcf7 input[type="submit"]:focus,
+.wpcf7 input.wpcf7-submit:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.4);
+}
+
+/* حالت فعال (وقتی کلیک می‌کنی) */
+.wpcf7 input[type="submit"]:active,
+.wpcf7 input.wpcf7-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 119, 255, 0.35);
+}
