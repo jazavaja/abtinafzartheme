@@ -65,23 +65,6 @@ custom_header(); ?>
 
 
         </div>
-        <section id="consultation">
-            <div class="consultation-container">
-                <div class="consultation-card">
-                    <div class="consultation-header">
-                        <h2>مشاوره رایگان</h2>
-                        <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
-                    </div>
-
-                    <?php
-                    $contact = get_key_value_url('contact_startup_fa');
-
-                    echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
-                    ?>
-
-                </div>
-            </div>
-        </section>
 
         <section class="services-offered" id="consulting-services">
             <div class="container">
@@ -115,7 +98,23 @@ custom_header(); ?>
             </div>
         </section>
 
+        <section id="consultation">
+            <div class="consultation-container">
+                <div class="consultation-card">
+                    <div class="consultation-header">
+                        <h2>مشاوره رایگان</h2>
+                        <p>ایده‌ای دارید؟ به مشاوره فنی نیاز دارید؟ بیایید صحبت کنیم</p>
+                    </div>
 
+                    <?php
+                    $contact = get_key_value_url('contact_startup_fa');
+
+                    echo do_shortcode('[contact-form-7 id="'.$contact.'" title="Free Conclusion Fa"]');
+                    ?>
+
+                </div>
+            </div>
+        </section>
 
         <div class="container">
             <section class="process-section">
