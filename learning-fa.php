@@ -10,132 +10,18 @@ custom_header(); ?>
     <div class="learning-container">
         <!-- Hero Section -->
         <div class="learning-hero">
-            <h1>🎓 دوره‌های تخصصی برنامه‌نویسی</h1>
+            <h1>🎓 تدریس خصوصی برنامه نویسی</h1>
             <p>از مبتدی تا متخصص با بهترین روش‌های آموزشی</p>
-            <span class="hero-badge" id="freeClassBadge">✨ جلسه اول تمام دوره‌ها رایگان است ✨</span>
+            <span class="hero-badge" id="freeClassBadge">رزرو جلسه اول رایگان 📅 </span>
+            <a class="hero-badge"  href="#testimonials-section" style="text-decoration: none">
+                ✨ نظرات دانشجویان ما ✨
+            </a>
         </div>
 
-        <!-- Courses Section -->
-        <h2 class="section-title">دوره‌های موجود</h2>
-        <div class="courses-grid">
-            <!-- Python Course -->
-            <div class="course-card">
-                <span class="course-icon">🐍</span>
-                <h3>برنامه‌نویسی پایتون</h3>
-                <p>پایتون را از صفر تا پیشرفته بیاموزید، شامل جنگو، فلسک، علم داده و اتوماسیون</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۴۸ ساعت</span>
-                    <span class="detail-badge">📚 ۱۲ پروژه</span>
-                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" id="freeClassBadge" data-course="برنامه‌نویسی پایتون">کلاس گروهی</button>
-                    <button class="class-btn private" id="freeClassBadge" data-course="برنامه‌نویسی پایتون">کلاس خصوصی</button>
-                </div>
-            </div>
-
-            <!-- PHP Course -->
-            <div class="course-card">
-                <span class="course-icon">🐘</span>
-                <h3>توسعه وب با PHP</h3>
-                <p>بر PHP، MySQL و توسعه وب‌سایت‌های داینامیک و سیستم‌های مدیریت محتوا مسلط شوید</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۴۰ ساعت</span>
-                    <span class="detail-badge">📚 ۱۰ پروژه</span>
-                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" data-course="توسعه وب با PHP">کلاس گروهی</button>
-                    <button class="class-btn private" data-course="توسعه وب با PHP">کلاس خصوصی</button>
-                </div>
-            </div>
-
-            <!-- Laravel Course -->
-            <div class="course-card">
-                <span class="course-icon">🔷</span>
-                <h3>فریمورک لاراول</h3>
-                <p>اپلیکیشن‌های وب حرفه‌ای با لاراول، REST API، احراز هویت و قابلیت‌های Real-time بسازید</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۵۰ ساعت</span>
-                    <span class="detail-badge">📚 ۱۵ پروژه</span>
-                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" data-course="فریمورک لاراول">کلاس گروهی</button>
-                    <button class="class-btn private" data-course="فریمورک لاراول">کلاس خصوصی</button>
-                </div>
-            </div>
-
-            <!-- Django Course -->
-            <div class="course-card">
-                <span class="course-icon">🎸</span>
-                <h3>فریمورک جنگو</h3>
-                <p>اپلیکیشن‌های وب مقیاس‌پذیر با جنگو، REST Framework، Celery و Docker توسعه دهید</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۴۵ ساعت</span>
-                    <span class="detail-badge">📚 ۱۳ پروژه</span>
-                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" data-course="فریمورک جنگو">کلاس گروهی</button>
-                    <button class="class-btn private" data-course="فریمورک جنگو">کلاس خصوصی</button>
-                </div>
-            </div>
-
-            <!-- AI/ML Course -->
-            <div class="course-card">
-                <span class="course-icon">🤖</span>
-                <h3>هوش مصنوعی و یادگیری ماشین</h3>
-                <p>بر هوش مصنوعی، یادگیری عمیق، TensorFlow، PyTorch و کاربردهای واقعی AI مسلط شوید</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۶۰ ساعت</span>
-                    <span class="detail-badge">📚 ۲۰ پروژه</span>
-                    <span class="detail-badge">🎯 سطح پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" data-course="هوش مصنوعی و یادگیری ماشین">کلاس گروهی</button>
-                    <button class="class-btn private" data-course="هوش مصنوعی و یادگیری ماشین">کلاس خصوصی</button>
-                </div>
-            </div>
-
-            <!-- JavaScript Course -->
-            <div class="course-card">
-                <span class="course-icon">💛</span>
-                <h3>تسلط بر جاوا اسکریپت</h3>
-                <p>جاوا اسکریپت ES6+، Async/Await، کار با DOM و توسعه وب مدرن را به طور کامل بیاموزید</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۴۲ ساعت</span>
-                    <span class="detail-badge">📚 ۱۴ پروژه</span>
-                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" data-course="تسلط بر جاوا اسکریپت">کلاس گروهی</button>
-                    <button class="class-btn private" data-course="تسلط بر جاوا اسکریپت">کلاس خصوصی</button>
-                </div>
-            </div>
-
-            <!-- React Course -->
-            <div class="course-card">
-                <span class="course-icon">⚛️</span>
-                <h3>توسعه با ری‌اکت</h3>
-                <p>رابط‌های کاربری مدرن با ری‌اکت، Redux، Hooks، Next.js و TypeScript بسازید</p>
-                <div class="course-details">
-                    <span class="detail-badge">⏱️ ۵۵ ساعت</span>
-                    <span class="detail-badge">📚 ۱۸ پروژه</span>
-                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
-                </div>
-                <div class="class-types">
-                    <button class="class-btn" data-course="توسعه با ری‌اکت">کلاس گروهی</button>
-                    <button class="class-btn private" data-course="توسعه با ری‌اکت">کلاس خصوصی</button>
-                </div>
-            </div>
-        </div>
-
-        <!----------------------------------------------------------------->
 
         <!-- Testimonials Section -->
 
-        <div class="testimonials-section">
+        <div class="testimonials-section" id="testimonials-section">
             <h2 class="section-title">نظرات دانشجویان</h2>
             <p style="text-align: center; color: #cbd5e1; margin-bottom: 2rem;">ببینید دانشجویان ما در مورد تجربه یادگیری خود چه می‌گویند</p>
 
@@ -201,6 +87,123 @@ custom_header(); ?>
                 echo '<p style="text-align: center; color: #cbd5e1;">No testimonials found.</p>';
             endif;
             ?>
+        </div>
+
+        <!-- Courses Section -->
+        <h2 class="section-title">دوره‌های موجود</h2>
+        <div class="courses-grid">
+            <!-- Python Course -->
+            <div class="course-card">
+                <span class="course-icon">🐍</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('python_url_fa'))); ?>" >تدریس خصوصی پایتون</a></h3>
+                <p>پایتون را از صفر تا پیشرفته بیاموزید، شامل جنگو، فلسک، علم داده و اتوماسیون</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۴۸ ساعت</span>
+                    <span class="detail-badge">📚 ۱۲ پروژه</span>
+                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" id="freeClassBadge" data-course="برنامه‌نویسی پایتون">کلاس گروهی</button>
+                    <button class="class-btn private" id="freeClassBadge" data-course="برنامه‌نویسی پایتون">کلاس خصوصی</button>
+                </div>
+            </div>
+
+            <!-- PHP Course -->
+            <div class="course-card">
+                <span class="course-icon">🐘</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('php_url_fa'))); ?>" >تدریس خصوصی PHP</a></h3>
+
+                <p>بر PHP، MySQL و توسعه وب‌سایت‌های داینامیک و سیستم‌های مدیریت محتوا مسلط شوید</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۴۰ ساعت</span>
+                    <span class="detail-badge">📚 ۱۰ پروژه</span>
+                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" data-course="توسعه وب با PHP">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="توسعه وب با PHP">کلاس خصوصی</button>
+                </div>
+            </div>
+
+            <!-- Laravel Course -->
+            <div class="course-card">
+                <span class="course-icon">🔷</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('laravel_url_fa'))); ?>" >تدریس خصوصی لاراول</a></h3>
+                <p>اپلیکیشن‌های وب حرفه‌ای با لاراول، REST API، احراز هویت و قابلیت‌های Real-time بسازید</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۵۰ ساعت</span>
+                    <span class="detail-badge">📚 ۱۵ پروژه</span>
+                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" data-course="فریمورک لاراول">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="فریمورک لاراول">کلاس خصوصی</button>
+                </div>
+            </div>
+
+            <!-- Django Course -->
+            <div class="course-card">
+                <span class="course-icon">🎸</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('django_url_fa'))); ?>" >تدریس خصوصی جنگو</a></h3>
+                <p>اپلیکیشن‌های وب مقیاس‌پذیر با جنگو، REST Framework، Celery و Docker توسعه دهید</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۴۵ ساعت</span>
+                    <span class="detail-badge">📚 ۱۳ پروژه</span>
+                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" data-course="فریمورک جنگو">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="فریمورک جنگو">کلاس خصوصی</button>
+                </div>
+            </div>
+
+            <!-- AI/ML Course -->
+            <div class="course-card">
+                <span class="course-icon">🤖</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('django_url_fa'))); ?>" >تدریس خصوصی هوش مصنوعی</a></h3>
+                <p>بر هوش مصنوعی، یادگیری عمیق، TensorFlow، PyTorch و کاربردهای واقعی AI مسلط شوید</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۶۰ ساعت</span>
+                    <span class="detail-badge">📚 ۲۰ پروژه</span>
+                    <span class="detail-badge">🎯 سطح پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" data-course="هوش مصنوعی و یادگیری ماشین">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="هوش مصنوعی و یادگیری ماشین">کلاس خصوصی</button>
+                </div>
+            </div>
+
+            <!-- JavaScript Course -->
+            <div class="course-card">
+                <span class="course-icon">💛</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('javascript_url_fa'))); ?>" >تدریس خصوصی JavaScript</a></h3>
+                <p>جاوا اسکریپت ES6+، Async/Await، کار با DOM و توسعه وب مدرن را به طور کامل بیاموزید</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۴۲ ساعت</span>
+                    <span class="detail-badge">📚 ۱۴ پروژه</span>
+                    <span class="detail-badge">🎯 مبتدی تا پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" data-course="تسلط بر جاوا اسکریپت">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="تسلط بر جاوا اسکریپت">کلاس خصوصی</button>
+                </div>
+            </div>
+
+            <!-- React Course -->
+            <div class="course-card">
+                <span class="course-icon">⚛️</span>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('javascript_url_fa'))); ?>" >تدریس خصوصی React</a></h3>
+                <p>رابط‌های کاربری مدرن با ری‌اکت، Redux، Hooks، Next.js و TypeScript بسازید</p>
+                <div class="course-details">
+                    <span class="detail-badge">⏱️ ۵۵ ساعت</span>
+                    <span class="detail-badge">📚 ۱۸ پروژه</span>
+                    <span class="detail-badge">🎯 متوسط تا پیشرفته</span>
+                </div>
+                <div class="class-types">
+                    <button class="class-btn" data-course="توسعه با ری‌اکت">کلاس گروهی</button>
+                    <button class="class-btn private" data-course="توسعه با ری‌اکت">کلاس خصوصی</button>
+                </div>
+            </div>
         </div>
 
 

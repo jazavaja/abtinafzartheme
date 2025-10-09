@@ -846,6 +846,9 @@ body {
     margin-bottom: 1rem;
     color: #a78bfa;
 }
+.course-card h3 a{
+    color: #a78bfa; text-decoration: none;
+}
 
 .course-card p {
     color: #cbd5e1;

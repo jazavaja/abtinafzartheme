@@ -89,6 +89,55 @@ function get_key_value_url( $key, $default = '#' ) {
     return $default;
 }
 
+/**
+ * @param $name_enn
+ * @param $default
+ * @return array
+ */
+function get_quickLink($name_enn, $default = []): array
+{
+    // مقدار پیش‌فرض پایه
+    $fallback = [
+        'link_fa'  => '#',
+        'link_en'  => '#',
+        'name_fa'  => '—',
+        'name_en'  => $name_enn, // همون ورودی کاربر
+    ];
+
+    // اگر کاربر default داد، اون رو ادغام کن
+    $fallback = array_merge($fallback, $default);
+
+    $args = array(
+        'post_type'      => 'quick_links',
+        'posts_per_page' => 1,
+        'meta_query'     => array(
+            array(
+                'key'     => 'name_en',
+                'value'   => $name_enn,
+                'compare' => '='
+            )
+        )
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        $query->the_post();
+
+        $result = [
+            'link_fa'  => pods_field('quick_links', get_the_ID(), 'link_fa', true) ?: $fallback['link_fa'],
+            'link_en'  => pods_field('quick_links', get_the_ID(), 'link_en', true) ?: $fallback['link_en'],
+            'name_fa'  => pods_field('quick_links', get_the_ID(), 'name_fa', true) ?: $fallback['name_fa'],
+            'name_en'  => pods_field('quick_links', get_the_ID(), 'name_en', true) ?: $fallback['name_en'],
+        ];
+
+        wp_reset_postdata();
+        return $result;
+    }
+
+    // اگر پست پیدا نشد، مقدار پیش‌فرض کامل برگرده
+    return $fallback;
+}
 
 function custom_header() {
     if (function_exists('pll_current_language')) {
