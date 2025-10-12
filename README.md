@@ -228,7 +228,12 @@ The theme requires the following plugins (managed via TGM Plugin Activation):
 - `training_url_fa` - Persian training URL
 - `training_url_en` - English training URL
 - `python_url_fa` - Persian training URL
-- `python_url_en` - English training URL
+- `php_url_fa` - Persian training URL
+- `laravel_url_fa` - Persian training URL
+- `django_url_fa` - Persian training URL
+- `ai_url_fa` - Persian training URL
+- `javascript_url_fa` - Persian training URL
+- `react_url_fa` - Persian training URL
 
 ### Button Configuration
 - `url_primary_fa` - Persian primary button URL

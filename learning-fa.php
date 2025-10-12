@@ -160,7 +160,7 @@ custom_header(); ?>
             <!-- AI/ML Course -->
             <div class="course-card">
                 <span class="course-icon">🤖</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('django_url_fa'))); ?>" >تدریس خصوصی هوش مصنوعی</a></h3>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('ai_url_fa'))); ?>" >تدریس خصوصی هوش مصنوعی</a></h3>
                 <p>بر هوش مصنوعی، یادگیری عمیق، TensorFlow، PyTorch و کاربردهای واقعی AI مسلط شوید</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۶۰ ساعت</span>
@@ -192,7 +192,7 @@ custom_header(); ?>
             <!-- React Course -->
             <div class="course-card">
                 <span class="course-icon">⚛️</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('javascript_url_fa'))); ?>" >تدریس خصوصی React</a></h3>
+                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('react_url_fa'))); ?>" >تدریس خصوصی React</a></h3>
                 <p>رابط‌های کاربری مدرن با ری‌اکت، Redux، Hooks، Next.js و TypeScript بسازید</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۵۵ ساعت</span>
