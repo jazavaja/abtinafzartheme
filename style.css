@@ -849,7 +849,10 @@ body {
 .course-card h3 a{
     color: #a78bfa; text-decoration: none;
 }
-
+.title_course{
+    color: #ffffff;
+    text-decoration: none;
+}
 .course-card p {
     color: #cbd5e1;
     line-height: 1.8;

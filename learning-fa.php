@@ -95,7 +95,7 @@ custom_header(); ?>
             <!-- Python Course -->
             <div class="course-card">
                 <span class="course-icon">🐍</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('python_url_fa'))); ?>" >تدریس خصوصی پایتون</a></h3>
+                <h3><a class="title_course" href="<?php echo esc_url(home_url(get_key_value_url('python_url_fa'))); ?>" >تدریس خصوصی پایتون</a></h3>
                 <p>پایتون را از صفر تا پیشرفته بیاموزید، شامل جنگو، فلسک، علم داده و اتوماسیون</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۴۸ ساعت</span>
@@ -111,7 +111,7 @@ custom_header(); ?>
             <!-- PHP Course -->
             <div class="course-card">
                 <span class="course-icon">🐘</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('php_url_fa'))); ?>" >تدریس خصوصی PHP</a></h3>
+                <h3><a class="title_course" href="<?php echo esc_url(home_url(get_key_value_url('php_url_fa'))); ?>" >تدریس خصوصی PHP</a></h3>
 
                 <p>بر PHP، MySQL و توسعه وب‌سایت‌های داینامیک و سیستم‌های مدیریت محتوا مسلط شوید</p>
                 <div class="course-details">
@@ -128,7 +128,7 @@ custom_header(); ?>
             <!-- Laravel Course -->
             <div class="course-card">
                 <span class="course-icon">🔷</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('laravel_url_fa'))); ?>" >تدریس خصوصی لاراول</a></h3>
+                <h3><a class="title_course" href="<?php echo esc_url(home_url(get_key_value_url('laravel_url_fa'))); ?>" >تدریس خصوصی لاراول</a></h3>
                 <p>اپلیکیشن‌های وب حرفه‌ای با لاراول، REST API، احراز هویت و قابلیت‌های Real-time بسازید</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۵۰ ساعت</span>
@@ -144,7 +144,7 @@ custom_header(); ?>
             <!-- Django Course -->
             <div class="course-card">
                 <span class="course-icon">🎸</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('django_url_fa'))); ?>" >تدریس خصوصی جنگو</a></h3>
+                <h3><a class="title_course" href="<?php echo esc_url(home_url(get_key_value_url('django_url_fa'))); ?>" >تدریس خصوصی جنگو</a></h3>
                 <p>اپلیکیشن‌های وب مقیاس‌پذیر با جنگو، REST Framework، Celery و Docker توسعه دهید</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۴۵ ساعت</span>
@@ -160,7 +160,7 @@ custom_header(); ?>
             <!-- AI/ML Course -->
             <div class="course-card">
                 <span class="course-icon">🤖</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('ai_url_fa'))); ?>" >تدریس خصوصی هوش مصنوعی</a></h3>
+                <h3><a class="title_course" href="<?php echo esc_url(home_url(get_key_value_url('ai_url_fa'))); ?>" >تدریس خصوصی هوش مصنوعی</a></h3>
                 <p>بر هوش مصنوعی، یادگیری عمیق، TensorFlow، PyTorch و کاربردهای واقعی AI مسلط شوید</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۶۰ ساعت</span>
@@ -176,7 +176,7 @@ custom_header(); ?>
             <!-- JavaScript Course -->
             <div class="course-card">
                 <span class="course-icon">💛</span>
-                <h3><a href="<?php echo esc_url(home_url(get_key_value_url('javascript_url_fa'))); ?>" >تدریس خصوصی JavaScript</a></h3>
+                <h3><a class="title_course" href="<?php echo esc_url(home_url(get_key_value_url('javascript_url_fa'))); ?>" >تدریس خصوصی JavaScript</a></h3>
                 <p>جاوا اسکریپت ES6+، Async/Await، کار با DOM و توسعه وب مدرن را به طور کامل بیاموزید</p>
                 <div class="course-details">
                     <span class="detail-badge">⏱️ ۴۲ ساعت</span>
