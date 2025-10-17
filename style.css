@@ -1,3 +1,10 @@
+/*
+Theme Name: AbtinafzarTheme
+Author: Abtinafzar Javan
+Version: 1.7
+*/
+
+
 /* ===== Custom header/footer styles (removed Tailwind/Lucide) ===== */
 /* Base */
 .site-body { background-color: #0f172a; color: #cbd5e1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
