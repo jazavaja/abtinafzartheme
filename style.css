@@ -320,20 +320,29 @@ body {
     margin-bottom: 4rem;
 }
 
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
 .projects-carousel {
     position: relative;
     overflow: hidden;
     padding: 40px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.projects-carousel:hover .projects-track {
+    animation-play-state: paused;
 }
 
 .projects-track {
     display: flex;
     gap: 40px;
-    padding: 0 5%;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    padding: 0 20px;
+    width: fit-content;
+    animation: scroll 60s linear infinite;
 }
 
 .projects-track::-webkit-scrollbar {
