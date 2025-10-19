@@ -155,49 +155,11 @@ $training   =  esc_html( get_key_value_url('training_url_en') );
         });
     });
 
-    // Auto-scroll projects with pause on hover
     const projectsTrack = document.getElementById('projectsTrack');
-    let scrollAmount = 0;
-    let isScrolling = true;
-    let autoScrollInterval;
-
-    function startAutoScroll() {
-        autoScrollInterval = setInterval(() => {
-            if (isScrolling) {
-                projectsTrack.scrollLeft += 8;
-
-                // Reset to start when reaching the end
-                if (projectsTrack.scrollLeft >= projectsTrack.scrollWidth - projectsTrack.clientWidth - 1) {
-                    projectsTrack.scrollLeft = 0;
-                }
-            }
-        }, 20);
-    }
-
-    // Pause on hover
-    projectsTrack.addEventListener('mouseenter', () => {
-        isScrolling = false;
+    const projectItems = Array.from(projectsTrack.children);
+    projectItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        projectsTrack.appendChild(clone);
     });
-
-    // Resume on mouse leave
-    projectsTrack.addEventListener('mouseleave', () => {
-        isScrolling = true;
-    });
-
-    // Manual scroll with mouse wheel
-    projectsTrack.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        projectsTrack.scrollLeft += e.deltaY;
-        isScrolling = false;
-
-        // Resume auto-scroll after 2 seconds of no manual scrolling
-        clearTimeout(scrollAmount);
-        scrollAmount = setTimeout(() => {
-            isScrolling = true;
-        }, 2000);
-    });
-
-    // Start auto-scroll
-    startAutoScroll();
 </script>
 
