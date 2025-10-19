@@ -39,4 +39,4 @@ custom_header(); ?>
         <?php endif; ?>
     </div>
 </main>
-<?php get_footer(); ?>
+<?php custom_footer(); ?>
