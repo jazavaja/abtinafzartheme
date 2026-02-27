@@ -15,7 +15,7 @@
                 <p class="footer-desc">
                     ابتین‌افزار جوان | نوآوری در توسعه نرم‌افزار و فناوری‌های هوشمند
                 </p>
-
+                <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=711898&Code=jbacmADmuv4ufRFDG9agpZqo4U1QFOCI'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=711898&Code=jbacmADmuv4ufRFDG9agpZqo4U1QFOCI' alt='' style='cursor:pointer' code='jbacmADmuv4ufRFDG9agpZqo4U1QFOCI'></a>
                 <!-- شبکه‌های اجتماعی -->
                 <div class="socials justify-end">
                     <a href="#" class="social-link">
