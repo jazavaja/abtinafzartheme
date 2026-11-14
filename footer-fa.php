@@ -7,7 +7,7 @@
     <div class="container">
         <div class="footer-grid">
 
-            <!-- ستون ۱: لوگو و توضیحات -->
+            <!-- ستون ۱: لوگو و توضیحات و اطلاعات تماس -->
             <div class="footer-col text-right">
                 <div class="footer-logo" style="height: 10% !important; width: 70px !important;">
                     <?php the_custom_logo(); ?>
@@ -15,7 +15,16 @@
                 <p class="footer-desc">
                     ابتین‌افزار جوان | نوآوری در توسعه نرم‌افزار و فناوری‌های هوشمند
                 </p>
-                <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=711898&Code=jbacmADmuv4ufRFDG9agpZqo4U1QFOCI'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=711898&Code=jbacmADmuv4ufRFDG9agpZqo4U1QFOCI' alt='' style='cursor:pointer' code='jbacmADmuv4ufRFDG9agpZqo4U1QFOCI'></a>
+
+                <!-- اطلاعات تماس -->
+                <div class="footer-contact-info" style="margin: 15px 0; font-size: 14px; line-height: 1.8; color: #fff;">
+                    <p><strong>تلفن همراه:</strong> <a href="tel:09919004814" dir="ltr" style="color: inherit; text-decoration: none;">09919004814</a></p>
+                    <p><strong>تلفن ثابت:</strong> <a href="tel:06643325491" dir="ltr" style="color: inherit; text-decoration: none;">06643325491</a></p>
+                    <p><strong>ایمیل:</strong> <a href="mailto:info@abtinafzar.ir" style="color: inherit; text-decoration: none;">info@abtinafzar.ir</a></p>
+                </div>
+
+                <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=738729&Code=mhCP4ryoWNc5vGCf8XKqPGG2oCpblFpg'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=738729&Code=mhCP4ryoWNc5vGCf8XKqPGG2oCpblFpg' alt='' style='cursor:pointer' code='mhCP4ryoWNc5vGCf8XKqPGG2oCpblFpg'></a>
+
                 <!-- شبکه‌های اجتماعی -->
                 <div class="socials justify-end">
                     <a href="#" class="social-link">
@@ -75,19 +84,19 @@
                 <div class="map-card">
                     <img
                             src="https://map.ir/static?x-api-key=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjdiM2NlYzA2ZWE2NzUyYjMwMDEyYTkxMmMzMGQ5MjU1ODA5OTQyZTI5N2QyMTU0ZjAxNDM5ODA5ZTk3NWY4YzMwNmZiNjBmZDcyOWZmOGI5In0.eyJhdWQiOiIyNTQ3MSIsImp0aSI6IjdiM2NlYzA2ZWE2NzUyYjMwMDEyYTkxMmMzMGQ5MjU1ODA5OTQyZTI5N2QyMTU0ZjAxNDM5ODA5ZTk3NWY4YzMwNmZiNjBmZDcyOWZmOGI5IiwiaWF0IjoxNzAzMzQ0NjA1LCJuYmYiOjE3MDMzNDQ2MDUsImV4cCI6MTcwNTg1MDIwNSwic3ViIjoiIiwic2NvcGVzIjpbImJhc2ljIl19.kOJQzJ2Yo5M3nGHj8JP_axj0yrpqMOgnuc4AFrw53umvos1rzIJRxPnRGXKyPDO_CdxfstPFWFhN-M1AExySjwS2l9VnfiBMsnoVOMhr1IVWqfIGI35hhsa1u6xJSBwdlfbkpT5qKJMmaJ4EQjdjuWqHGG4rMzbD1H1EGv5gXyLfMW-FTVq4iBZ_nKrpEPTowCdEGd8IT70iXUK27tljbFgkR0AHhd60I76Lq5hd-TZj435gY3phJna0EU1nakIX0HWtc6hCamyyg_-FogrZEVg276cjlAlxTt17KUzwJutjbaH5Htf6iQKDZEUaz3BQLFa3kfCVFhOTrBLTATpWzQ&width=700&height=500&markers=color:red|label:a|51.394912,35.72164&zoom_level=17"
-                            alt="Rankola Location Map"
+                            alt="Abtinafzar Location Map"
                             class="map-image"
                             loading="lazy"
                     />
                 </div>
-                <p class="footer-location">
-                    <svg class="icon-geo ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <p class="footer-location" style="margin-top: 10px;">
+                    <svg class="icon-geo ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
-                    اصفهان، ایران
+                    لرستان، الیگودرز، شهرک چمران، انتهای بلوار امام رضا، مدرسه ملیکا
                 </p>
             </div>
         </div>
