@@ -414,6 +414,166 @@ add_action('wp_enqueue_scripts', function () {
 }, 20);
 
 
+// Enqueue Pasargad Oil EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('pasargad-oil-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-pasargad-oil-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Pasargad Oil FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('pasargad-oil-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-pasargad-oil-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+// Enqueue Simcap Jewelry EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('simcap-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-simcap-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Simcap Jewelry FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('simcap-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-simcap-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+
+
+// Enqueue Crypto Exchange EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('crypto-exchange-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-crypto-exchange-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Crypto Exchange FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('crypto-exchange-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-crypto-exchange-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+// Enqueue Isatis CRM EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('isatis-crm-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-isatis-crm-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Isatis CRM FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('isatis-crm-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-isatis-crm-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+
+
+// Enqueue Chess Engine EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('chess-engine-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-chess-engine-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Chess Engine FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('chess-engine-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-chess-engine-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+
+
+
+
+
+
+
+// Enqueue Carton Optimizer EN page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('carton-optimizer-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-carton-optimizer-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
+// Enqueue Carton Optimizer FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('carton-optimizer-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-carton-optimizer-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css',
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+
+
+
+
+
 
 // Enqueue Saman Chatbot FA page-specific stylesheet
 add_action('wp_enqueue_scripts', function () {

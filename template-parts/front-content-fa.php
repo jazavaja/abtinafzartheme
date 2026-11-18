@@ -3,6 +3,15 @@
  * Template Name: Home Page
  */
 
+// لینک‌های پروژه‌ها از طریق تابع get_key_value_url (Pods)
+$project_saman    = esc_url(get_key_value_url('project_saman_url_fa', '#'));
+$project_pasargad = esc_url(get_key_value_url('project_pasargad_url_fa', '#'));
+$project_simcap   = esc_url(get_key_value_url('project_simcap_url_fa', '#'));
+$project_exchange = esc_url(get_key_value_url('project_exchange_url_fa', '#'));
+$project_isatis   = esc_url(get_key_value_url('project_isatis_url_fa', '#'));
+$project_chess    = esc_url(get_key_value_url('project_chess_url_fa', '#'));
+$project_carton   = esc_url(get_key_value_url('project_carton_url_fa', '#'));
+
 ?>
     <!-- Hero Section -->
     <section class="hero">
@@ -34,7 +43,7 @@
                     <span class="card-tech"><span></span>RAG · LLM · Python · FastAPI</span>
                     <h3>چت‌بات فین‌تک بانک سامان</h3>
                     <p>چت‌بات هوشمند مبتنی بر RAG و مدل‌های زبان بزرگ (LLM) برای پاسخگویی به سوالات مشتریان و تراکنش‌های بانکی.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_saman; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
             <div class="project-card reveal reveal-delay-4">
@@ -44,7 +53,7 @@
                     <span class="card-tech"><span></span>AI · Python · Django · PostgreSQL</span>
                     <h3>سامانه بهینه‌سازی خرید و ربات صف — نفت پاسارگاد</h3>
                     <p>سیستم هوشمند برای بهینه‌سازی زمان خرید، مدیریت صف و خرید خودکار در شرکت نفت پاسارگاد با هوش مصنوعی.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_pasargad; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
             <div class="project-card reveal reveal-delay-5">
@@ -54,7 +63,7 @@
                     <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · Payment</span>
                     <h3>فروشگاه طلا آنلاین simcap.ir</h3>
                     <p>پلتفرم فروش طلا و جواهرات آنلاین با درگاه پرداخت، مدیریت انبار و سفارش.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_simcap; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
             <div class="project-card reveal reveal-delay-3">
@@ -64,7 +73,7 @@
                     <span class="card-tech"><span></span>Node.js · React · MongoDB · Blockchain</span>
         <h3>صرافی ارز دیجیتال</h3>
         <p>سامانه خرید و فروش ارزهای دیجیتال و کریپتو کوین با کیف پول، تراکنش و گزارش‌دهی لحظه‌ای.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_exchange; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
             <div class="project-card reveal reveal-delay-4">
@@ -74,7 +83,7 @@
                     <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · API</span>
                     <h3>CRM کارگزاری ایساتیس</h3>
                     <p>پلتفرم جامع مدیریت مشتریان، ردیابی لیدها و جریان فروش برای کارگزاری ایساتیس.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_isatis; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
             <div class="project-card reveal reveal-delay-5">
@@ -84,7 +93,7 @@
                     <span class="card-tech"><span></span>Rust · NNUE · Chess · AI</span>
                     <h3>موتور هوشمند شطرنج (Rust + NNUE)</h3>
                     <p>موتور شطرنج با نوشته شدن در زبان Rust و استفاده از تکنیک NNUE برای ارزیابی وضعیت درختی بازی.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_chess; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
             <div class="project-card reveal reveal-delay-6">
@@ -94,7 +103,7 @@
                     <span class="card-tech"><span></span>Python · OR-Tools · Algorithm · Logistics</span>
                     <h3>بهینه‌سازی طراحی کارتن و چیدمان پالت</h3>
                     <p>نرم‌افزار هوشمند برای بهینه‌سازی برش کارتن، چیدمان کالا روی پالت و کاهش هدررفت مواد.</p>
-                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                    <a href="<?php echo $project_carton; ?>" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
         </div>
@@ -120,13 +129,12 @@
     <!-- Services Section -->
 <?php
 
-$web = esc_html(get_key_value_url('web_develop_url_fa'));
-$ai = esc_html(get_key_value_url('ai_url_fa'));
-$enterprise = esc_html(get_key_value_url('enterprise_url_fa'));
-$blockchain = esc_html(get_key_value_url('blockchain_url_fa'));
-$consultation = esc_html(get_key_value_url('consultation_startups_url_fa'));
-$training = esc_html(get_key_value_url('training_url_fa'));
-
+$web = esc_url(get_key_value_url('web_develop_url_fa'));
+$ai = esc_url(get_key_value_url('ai_url_fa'));
+$enterprise = esc_url(get_key_value_url('enterprise_url_fa'));
+$blockchain = esc_url(get_key_value_url('blockchain_url_fa'));
+$consultation = esc_url(get_key_value_url('consultation_startups_url_fa'));
+$training = esc_url(get_key_value_url('training_url_fa'));
 
 ?>
     <section id="services">

@@ -2,6 +2,16 @@
 /**
  * Template Name: Home Page English
  */
+
+// Project Links using get_key_value_url (Pods)
+$project_saman    = esc_url(get_key_value_url('project_saman_url_en', '#'));
+$project_pasargad = esc_url(get_key_value_url('project_pasargad_url_en', '#'));
+$project_simcap   = esc_url(get_key_value_url('project_simcap_url_en', '#'));
+$project_exchange = esc_url(get_key_value_url('project_exchange_url_en', '#'));
+$project_isatis   = esc_url(get_key_value_url('project_isatis_url_en', '#'));
+$project_chess    = esc_url(get_key_value_url('project_chess_url_en', '#'));
+$project_carton   = esc_url(get_key_value_url('project_carton_url_en', '#'));
+
 ?>
 <!-- Hero Section -->
 <section class="hero">
@@ -34,7 +44,7 @@
                 <span class="card-tech"><span></span>RAG · LLM · Python · FastAPI</span>
                 <h3>Saman Bank FinTech Chatbot</h3>
                 <p>AI-powered chatbot based on RAG and Large Language Models for customer inquiries and banking transactions.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_saman; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
         <div class="project-card reveal reveal-delay-4">
@@ -44,7 +54,7 @@
                 <span class="card-tech"><span></span>AI · Python · Django · PostgreSQL</span>
                 <h3>Purchase Optimization & Queue Bot — Pasargad Oil</h3>
                 <p>Intelligent system for purchase time optimization, queue management, and autonomous buying for Pasargad Oil Company.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_pasargad; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
         <div class="project-card reveal reveal-delay-5">
@@ -54,7 +64,7 @@
                 <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · Payment</span>
                 <h3>Online Jewelry Store — simcap.ir</h3>
                 <p>Online gold and jewelry e-commerce platform with payment gateway, inventory and order management.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_simcap; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
         <div class="project-card reveal reveal-delay-3">
@@ -64,7 +74,7 @@
                 <span class="card-tech"><span></span>Node.js · React · MongoDB · Blockchain</span>
         <h3>Digital Currency Exchange</h3>
         <p>Platform for buying and selling digital currencies and crypto assets with wallet integration, transactions, and real-time reporting.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_exchange; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
         <div class="project-card reveal reveal-delay-4">
@@ -74,7 +84,7 @@
                 <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · API</span>
                 <h3>Isatis Brokerage CRM</h3>
                 <p>Customer relationship, lead and sales pipeline management platform for Isatis brokerage.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_isatis; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
         <div class="project-card reveal reveal-delay-5">
@@ -84,7 +94,7 @@
                 <span class="card-tech"><span></span>Rust · NNUE · Chess · AI</span>
                 <h3>Smart Chess Engine (Rust + NNUE)</h3>
                 <p>Chess engine written in Rust using NNUE technique for position evaluation and move search.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_chess; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
         <div class="project-card reveal reveal-delay-6">
@@ -94,7 +104,7 @@
                 <span class="card-tech"><span></span>Python · OR-Tools · Algorithm · Logistics</span>
                 <h3>Carton Design & Pallet Layout Optimizer</h3>
                 <p>Intelligent software for carton cutting optimization, pallet layout planning, and material waste reduction.</p>
-                <a href="#" class="card-link">View Project <span>→</span></a>
+                <a href="<?php echo $project_carton; ?>" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
     </div>
@@ -120,12 +130,12 @@
 
 <?php
 
-$web = esc_html( get_key_value_url('web_develop_url_en') );
-$ai =  esc_html( get_key_value_url('ai_url_en') );
-$enterprise  =  esc_html( get_key_value_url('enterprise_url_en') );
-$blockchain  =  esc_html( get_key_value_url('blockchain_url_en') );
-$consultation  =  esc_html( get_key_value_url('consultation_startups_url_en') );
-$training   =  esc_html( get_key_value_url('training_url_en') );
+$web = esc_url( get_key_value_url('web_develop_url_en') );
+$ai =  esc_url( get_key_value_url('ai_url_en') );
+$enterprise  =  esc_url( get_key_value_url('enterprise_url_en') );
+$blockchain  =  esc_url( get_key_value_url('blockchain_url_en') );
+$consultation  =  esc_url( get_key_value_url('consultation_startups_url_en') );
+$training   =  esc_url( get_key_value_url('training_url_en') );
 
 ?>
 <section id="services">
@@ -200,4 +210,3 @@ $training   =  esc_html( get_key_value_url('training_url_en') );
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
-
