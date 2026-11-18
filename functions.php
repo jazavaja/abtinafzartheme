@@ -413,6 +413,32 @@ add_action('wp_enqueue_scripts', function () {
     }
 }, 20);
 
+
+
+// Enqueue Saman Chatbot FA page-specific stylesheet
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('saman-chatbot-fa.php')) {
+        wp_enqueue_style(
+            'abtinafzar-saman-chatbot-fa',
+            get_template_directory_uri() . '/assets/css/blockchain-fa.css', // استفاده از CSS بلاکچین فارسی
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-fa.css')
+        );
+    }
+}, 20);
+
+// Enqueue Saman Chatbot EN page-specific stylesheet (uses blockchain-en.css)
+add_action('wp_enqueue_scripts', function () {
+    if (is_page_template('saman-chatbot-en.php')) {
+        wp_enqueue_style(
+            'abtinafzar-saman-chatbot-en',
+            get_template_directory_uri() . '/assets/css/blockchain-en.css', // از CSS بلاکچین استفاده میکنیم
+            [],
+            filemtime(get_template_directory() . '/assets/css/blockchain-en.css')
+        );
+    }
+}, 20);
+
 // Enqueue Startup Consulting (EN) stylesheet
 add_action('wp_enqueue_scripts', function () {
     if (is_page_template('startup-en.php')) {
