@@ -21,46 +21,80 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">پروژه‌های برگزیده</h2>
-        <p class="section-subtitle">برای مشاهده کارهای من اسکرول کنید</p>
-        <div class="projects-carousel">
-            <div class="projects-track" id="projectsTrack">
-                <div class="project-circle">
-                    <span class="project-number">۰۱</span>
-                    <span class="tech-badge">Django + React + PostgreSQL</span>
-                    <h3>مدیریت ناوگان</h3>
-                    <p>ردیابی GPS بلادرنگ، زمان‌بندی تعمیرات و تحلیل‌های عملیاتی ناوگان.</p>
+    <section id="projects" class="projects-section">
+        <div class="projects-header reveal reveal-delay-1">
+            <h2 class="section-title">پروژه‌های برگزیده</h2>
+            <p class="section-subtitle reveal reveal-delay-2">اخرین کارهای انجام شده توسط تیم آبتین‌افزار</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal reveal-delay-3">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۱</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>RAG · LLM · Python · FastAPI</span>
+                    <h3>چت‌بات فین‌تک بانک سامان</h3>
+                    <p>چت‌بات هوشمند مبتنی بر RAG و مدل‌های زبان بزرگ (LLM) برای پاسخگویی به سوالات مشتریان و تراکنش‌های بانکی.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
-                <div class="project-circle">
-                    <span class="project-number">۰۲</span>
-                    <span class="tech-badge">Python + TensorFlow + Keras</span>
-                    <h3>پیش‌بینی هوش مصنوعی سهام</h3>
-                    <p>پیش‌بینی روند بازار با دقت ۸۹٪ با استفاده از یادگیری عمیق و شاخص‌های تکنیکال.</p>
+            </div>
+            <div class="project-card reveal reveal-delay-4">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۲</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>AI · Python · Django · PostgreSQL</span>
+                    <h3>سامانه بهینه‌سازی خرید و ربات صف — نفت پاسارگاد</h3>
+                    <p>سیستم هوشمند برای بهینه‌سازی زمان خرید، مدیریت صف و خرید خودکار در شرکت نفت پاسارگاد با هوش مصنوعی.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
-                <div class="project-circle">
-                    <span class="project-number">۰۳</span>
-                    <span class="tech-badge">Laravel + Vue.js + MySQL</span>
-                    <h3>بک‌اند فروشگاه اینترنتی</h3>
-                    <p>API مقیاس‌پذیر با پرداخت، مدیریت موجودی و کاربران برای خرده‌فروشی آنلاین.</p>
+            </div>
+            <div class="project-card reveal reveal-delay-5">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۳</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · Payment</span>
+                    <h3>فروشگاه طلا آنلاین simcap.ir</h3>
+                    <p>پلتفرم فروش طلا و جواهرات آنلاین با درگاه پرداخت، مدیریت انبار و سفارش.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
-                <div class="project-circle">
-                    <span class="project-number">۰۴</span>
-                    <span class="tech-badge">Spring + Java + Oracle</span>
-                    <h3>سیستم CRM دانشگاهی</h3>
-                    <p>پلتفرم مدیریت چرخه حیات و پشتیبانی دانشجویان برای دانشگاه‌ها.</p>
+            </div>
+            <div class="project-card reveal reveal-delay-3">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۴</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>Node.js · React · MongoDB · Blockchain</span>
+        <h3>صرافی ارز دیجیتال</h3>
+        <p>سامانه خرید و فروش ارزهای دیجیتال و کریپتو کوین با کیف پول، تراکنش و گزارش‌دهی لحظه‌ای.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
-                <div class="project-circle">
-                    <span class="project-number">۰۵</span>
-                    <span class="tech-badge">React + Laravel + AI Services</span>
-                    <h3>پلتفرم مدرسه هوشمند ایزی‌کا</h3>
-                    <p>مدیریت مدرسه مبتنی بر هوش مصنوعی با اتوماسیون مالی، تکالیف و مدیریت.</p>
+            </div>
+            <div class="project-card reveal reveal-delay-4">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۵</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · API</span>
+                    <h3>CRM کارگزاری ایساتیس</h3>
+                    <p>پلتفرم جامع مدیریت مشتریان، ردیابی لیدها و جریان فروش برای کارگزاری ایساتیس.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
-                <div class="project-circle">
-                    <span class="project-number">۰۶</span>
-                    <span class="tech-badge">Python + Scrapy + Selenium</span>
-                    <h3>استخراج‌کننده پیشرفته داده</h3>
-                    <p>ابزار قدرتمند برای استخراج داده‌های پویا از وب‌سایت‌های پیچیده در مقیاس بزرگ.</p>
+            </div>
+            <div class="project-card reveal reveal-delay-5">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۶</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>Rust · NNUE · Chess · AI</span>
+                    <h3>موتور هوشمند شطرنج (Rust + NNUE)</h3>
+                    <p>موتور شطرنج با نوشته شدن در زبان Rust و استفاده از تکنیک NNUE برای ارزیابی وضعیت درختی بازی.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
+                </div>
+            </div>
+            <div class="project-card reveal reveal-delay-6">
+                <div class="card-glow"></div>
+                <span class="card-number">۰۷</span>
+                <div class="card-content">
+                    <span class="card-tech"><span></span>Python · OR-Tools · Algorithm · Logistics</span>
+                    <h3>بهینه‌سازی طراحی کارتن و چیدمان پالت</h3>
+                    <p>نرم‌افزار هوشمند برای بهینه‌سازی برش کارتن، چیدمان کالا روی پالت و کاهش هدررفت مواد.</p>
+                    <a href="#" class="card-link">مشاهده پروژه <span>→</span></a>
                 </div>
             </div>
         </div>
@@ -156,12 +190,16 @@ $training = esc_html(get_key_value_url('training_url_fa'));
             });
         });
 
-    const projectsTrack = document.getElementById('projectsTrack');
-    const projectItems = Array.from(projectsTrack.children);
-    projectItems.forEach(item => {
-        const clone = item.cloneNode(true);
-        projectsTrack.appendChild(clone);
-    });
+    // Reveal-on-scroll animation for projects section
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 <?php get_footer(); ?>

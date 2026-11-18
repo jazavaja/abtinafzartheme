@@ -21,46 +21,80 @@
 </section>
 
 <!-- Projects Section -->
-<section id="projects">
-    <h2 class="section-title">Featured Projects</h2>
-    <p class="section-subtitle">Swipe to explore my work</p>
-    <div class="projects-carousel">
-        <div class="projects-track" id="projectsTrack">
-            <div class="project-circle">
-                <span class="project-number">01</span>
-                <span class="tech-badge">Django + React + PostgreSQL</span>
-                <h3>FleetManager</h3>
-                <p>Real-time GPS tracking, maintenance scheduling, and analytics for fleet operations.</p>
+<section id="projects" class="projects-section">
+    <div class="projects-header reveal reveal-delay-1">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Latest works by Abtinafzar team</p>
+    </div>
+    <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-3">
+            <div class="card-glow"></div>
+            <span class="card-number">01</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>RAG · LLM · Python · FastAPI</span>
+                <h3>Saman Bank FinTech Chatbot</h3>
+                <p>AI-powered chatbot based on RAG and Large Language Models for customer inquiries and banking transactions.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
             </div>
-            <div class="project-circle">
-                <span class="project-number">02</span>
-                <span class="tech-badge">Python + TensorFlow + Keras</span>
-                <h3>AI Stock Predictor</h3>
-                <p>Market trend forecasting with 89% accuracy using deep learning and technical indicators.</p>
+        </div>
+        <div class="project-card reveal reveal-delay-4">
+            <div class="card-glow"></div>
+            <span class="card-number">02</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>AI · Python · Django · PostgreSQL</span>
+                <h3>Purchase Optimization & Queue Bot — Pasargad Oil</h3>
+                <p>Intelligent system for purchase time optimization, queue management, and autonomous buying for Pasargad Oil Company.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
             </div>
-            <div class="project-circle">
-                <span class="project-number">03</span>
-                <span class="tech-badge">Laravel + Vue.js + MySQL</span>
-                <h3>E-Commerce Backend</h3>
-                <p>Scalable API with payment, inventory, and user management for online retail.</p>
+        </div>
+        <div class="project-card reveal reveal-delay-5">
+            <div class="card-glow"></div>
+            <span class="card-number">03</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · Payment</span>
+                <h3>Online Jewelry Store — simcap.ir</h3>
+                <p>Online gold and jewelry e-commerce platform with payment gateway, inventory and order management.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
             </div>
-            <div class="project-circle">
-                <span class="project-number">04</span>
-                <span class="tech-badge">Spring + Java + Oracle</span>
-                <h3>University CRM System</h3>
-                <p>Student lifecycle and support management platform for universities.</p>
+        </div>
+        <div class="project-card reveal reveal-delay-3">
+            <div class="card-glow"></div>
+            <span class="card-number">04</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>Node.js · React · MongoDB · Blockchain</span>
+        <h3>Digital Currency Exchange</h3>
+        <p>Platform for buying and selling digital currencies and crypto assets with wallet integration, transactions, and real-time reporting.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
             </div>
-            <div class="project-circle">
-                <span class="project-number">05</span>
-                <span class="tech-badge">React + Laravel + AI Services</span>
-                <h3>Easyka Smart School Platform</h3>
-                <p>AI-powered school management with finance, homework, and admin automation.</p>
+        </div>
+        <div class="project-card reveal reveal-delay-4">
+            <div class="card-glow"></div>
+            <span class="card-number">05</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>Laravel · Vue.js · MySQL · API</span>
+                <h3>Isatis Brokerage CRM</h3>
+                <p>Customer relationship, lead and sales pipeline management platform for Isatis brokerage.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
             </div>
-            <div class="project-circle">
-                <span class="project-number">06</span>
-                <span class="tech-badge">Python + Scrapy + Selenium</span>
-                <h3>Advanced Data Scraper</h3>
-                <p>Robust tool for extracting dynamic data from complex websites at scale.</p>
+        </div>
+        <div class="project-card reveal reveal-delay-5">
+            <div class="card-glow"></div>
+            <span class="card-number">06</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>Rust · NNUE · Chess · AI</span>
+                <h3>Smart Chess Engine (Rust + NNUE)</h3>
+                <p>Chess engine written in Rust using NNUE technique for position evaluation and move search.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
+            </div>
+        </div>
+        <div class="project-card reveal reveal-delay-6">
+            <div class="card-glow"></div>
+            <span class="card-number">07</span>
+            <div class="card-content">
+                <span class="card-tech"><span></span>Python · OR-Tools · Algorithm · Logistics</span>
+                <h3>Carton Design & Pallet Layout Optimizer</h3>
+                <p>Intelligent software for carton cutting optimization, pallet layout planning, and material waste reduction.</p>
+                <a href="#" class="card-link">View Project <span>→</span></a>
             </div>
         </div>
     </div>
@@ -155,11 +189,15 @@ $training   =  esc_html( get_key_value_url('training_url_en') );
         });
     });
 
-    const projectsTrack = document.getElementById('projectsTrack');
-    const projectItems = Array.from(projectsTrack.children);
-    projectItems.forEach(item => {
-        const clone = item.cloneNode(true);
-        projectsTrack.appendChild(clone);
-    });
-</script>
+    // Reveal-on-scroll animation for projects section
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 

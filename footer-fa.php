@@ -52,9 +52,9 @@
             $quick_links = new WP_Query($args);
             ?>
 
-            <!-- Column 2: Quick Links -->
+            <!-- ستون ۲: لینک‌های سریع -->
             <div class="footer-col">
-                <h3 class="footer-title">Quick Links</h3>
+                <h3 class="footer-title">لینک‌های سریع</h3>
                 <div class="footer-links">
                     <?php
                     if ($quick_links->have_posts()) :
@@ -72,7 +72,7 @@
                         endwhile;
                         wp_reset_postdata();
                     else :
-                        echo '<p class="footer-empty">No links found.</p>';
+                        echo '<p class="footer-empty">لینکی پیدا نشد.</p>';
                     endif;
                     ?>
                 </div>

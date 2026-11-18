@@ -74,6 +74,11 @@
                     <?php
                 }
                 ?>
+
+                <!-- Panel Button -->
+                <a href="https://accounting.abtinafzar.ir" class="btn btn-panel" target="_blank" rel="noopener">
+                    ورود به پنل
+                </a>
             </div>
         </div>
 
@@ -95,6 +100,10 @@
 
                 <a href="<?php echo $url_learning ?>" class="mobile-cta btn btn-gradient">
                     <?php echo $button_text ?>
+                </a>
+
+                <a href="https://accounting.abtinafzar.ir" class="mobile-cta btn btn-panel" target="_blank" rel="noopener">
+                    ورود به پنل
                 </a>
                 <?php
             }
